@@ -2,7 +2,9 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { account, type Product } from "@/config/accounts";
 
 import { Button } from "@/components/ui/button";
-import { RotateCcw, Search, Image as ImageIcon, Sparkles, X, ZoomIn } from "lucide-react";
+import { RotateCcw, Search, Image as ImageIcon, Sparkles, X, ZoomIn, Layers, Eye, Rocket, Target } from "lucide-react";
+import astro from "@/assets/characters/astro.png.asset.json";
+import einstein from "@/assets/characters/einstein.png.asset.json";
 import { searchRevenueModel, revenueLimits, modeledScenarios } from "@/lib/revenue-model";
 
 const a = account;
@@ -84,15 +86,11 @@ export function Cloud({ className = "" }: { className?: string }) {
   );
 }
 
-/** Reserved slot for an approved Salesforce character asset (Astro, Einstein). */
-export function MascotSlot({ name, dark }: { name: string; dark?: boolean }) {
-  return (
-    <div data-mascot-slot={name} className={`flex aspect-square w-full flex-col items-center justify-center rounded-full border-2 border-dashed text-center ${dark ? "border-sky/50 text-navy-muted" : "border-primary/40 text-muted-foreground"}`}>
-      <Cloud className={`w-1/3 ${dark ? "text-sky/70" : "text-primary/60"}`} />
-      <p className="mt-3 text-xs font-semibold uppercase">{name}</p>
-      <p className="text-[11px]">Approved character artwork</p>
-    </div>
-  );
+const characters = { Astro: astro.url, Einstein: einstein.url };
+
+/** Approved Salesforce character artwork, shown at its natural proportions on a transparent background. */
+export function Mascot({ name, className = "" }: { name: keyof typeof characters; className?: string }) {
+  return <img data-mascot={name} src={characters[name]} alt={`Salesforce ${name}`} className={`h-auto w-full object-contain drop-shadow-[0_24px_40px_rgba(3,45,96,0.35)] ${className}`} />;
 }
 
 /* 1 — Hero */
@@ -120,7 +118,10 @@ export function Hero() {
         </div>
         <div className="relative z-10 mx-auto w-full max-w-sm">
           <div className="rounded-[2rem] border border-sky/20 bg-navy/40 p-6 shadow-glow backdrop-blur">
-            <MascotSlot name="Astro" dark />
+            <div className="relative">
+              <Cloud className="pointer-events-none absolute inset-x-6 bottom-2 text-sky/15" />
+              <Mascot name="Astro" className="animate-float relative" />
+            </div>
             <div className="mt-5 space-y-2">
               {["Understands intent", "Reads product imagery", "Learns from simulated journeys"].map((t) => (
                 <p key={t} className="flex items-center gap-2 rounded-xl bg-primary/25 px-3 py-2 text-sm font-semibold"><Sparkles className="size-4 text-sky" />{t}</p>
@@ -235,15 +236,15 @@ export function Today() {
   );
 }
 
-function ProductCard({ p }: { p: Product; delay?: number }) {
+function ProductCard({ p, hideWhy }: { p: Product; hideWhy?: boolean }) {
   return <article data-product-card className="flex min-w-0 flex-col rounded-2xl border bg-card p-4 text-card-foreground shadow-soft transition-transform duration-300 hover:-translate-y-1">
-    <div className="flex aspect-[3/2] items-center justify-center overflow-hidden rounded-xl bg-card">
-      {p.image ? <img src={p.image} alt={p.name} loading="lazy" className="h-full w-full object-cover object-top" /> : <div className="p-3 text-center text-xs text-muted-foreground"><ImageIcon className="mx-auto mb-2 size-8" />Authentic product photo pending</div>}
+    <div className="flex aspect-[3/2] items-center justify-center overflow-hidden rounded-xl bg-card p-2">
+      {p.image ? <img src={p.image} alt={p.name} loading="lazy" className="h-full w-full object-contain" /> : <div className="p-3 text-center text-xs text-muted-foreground"><ImageIcon className="mx-auto mb-2 size-8" />Authentic product photo pending</div>}
     </div>
     <h3 className="mt-3 text-sm font-semibold leading-snug">{p.name}</h3>
     {p.price && <p className="mt-1 text-sm font-semibold">{p.price}</p>}
     <div className="mt-2 flex flex-wrap gap-1">{p.tags.map(t => <span key={t} className="rounded-sm bg-accent px-2 py-1 text-[11px] text-accent-foreground">{t}</span>)}</div>
-    {p.why && <p className="mt-3 text-xs leading-relaxed text-muted-foreground"><span className="font-semibold text-primary">Why this matches:</span> {p.why}</p>}
+    {p.why && !hideWhy && <p className="mt-3 text-xs leading-relaxed text-muted-foreground"><span className="font-semibold text-primary">Why this matches:</span> {p.why}</p>}
     {p.source && <a href={p.source} target="_blank" rel="noreferrer" className="mt-auto pt-3 text-xs font-semibold text-primary underline">Product details ↗</a>}
   </article>;
 }
@@ -286,39 +287,50 @@ export function Business() {
   const [uplift, setUplift] = useState(a.calculator.upliftPct);
   const model = searchRevenueModel(revenue, share, uplift);
   return <section id="outcomes" className="py-24"><div className="mx-auto max-w-7xl px-6">
-    <div className="reveal"><Eyebrow>Proven Customer Outcomes</Eyebrow><h2 className="text-4xl font-semibold md:text-5xl">Better discovery. Measurable business impact.</h2></div>
+    <div className="reveal"><Eyebrow>07 · Customer Success Metrics</Eyebrow><h2 className="text-4xl font-semibold md:text-5xl">Better discovery. Measurable business impact.</h2></div>
     <div className="reveal mt-10 grid grid-cols-2 gap-4 lg:grid-cols-3">{a.outcomes.map(m => <article key={m.label} className="rounded-lg border bg-card p-6 shadow-soft"><p className="font-display text-4xl font-semibold text-primary md:text-5xl">{m.value}</p><p className="mt-3 text-sm font-semibold">{m.label}</p></article>)}</div>
-    <p className="mt-5 max-w-4xl text-xs leading-relaxed text-muted-foreground">Source: reported customer outcomes, Salesforce Agentic Commerce Search webinar.</p>
+    <p className="mt-5 max-w-4xl text-xs leading-relaxed text-muted-foreground">Source: Customer Success Metrics — outcomes reported by Agentic Commerce Search customers. Individual results vary and are not a guarantee of performance.</p>
     <div className="reveal mt-20 border-t pt-14"><Eyebrow>Modeled Skechers Opportunity</Eyebrow><h2 className="text-4xl font-semibold md:text-5xl">What Could This Mean for {a.name}?</h2><p className="mt-4 text-lg text-muted-foreground">Explore how improvements in search performance could translate into incremental ecommerce revenue.</p></div>
     <div className="reveal mt-10 grid gap-10 lg:grid-cols-2"><div className="space-y-7">
-      <ModelSlider label="Annual ecommerce revenue" note="Illustrative starting assumption — replace with Skechers actuals." value={revenue} limits={revenueLimits.annualRevenue} step={10_000_000} onChange={setRevenue} money />
-      <ModelSlider label="Share of ecommerce revenue attributable to site search" note="Illustrative estimate — adjustable. Revenue from sessions involving site search." value={share} limits={revenueLimits.searchSharePct} step={1} onChange={setShare} />
-      <ModelSlider label="Expected search revenue per visitor (RPV) uplift" note="Illustrative uplift assumption — adjustable. RPV measures revenue generated per visitor. Improvements can reflect conversion, average order value, or both." value={uplift} limits={revenueLimits.upliftPct} step={1} onChange={setUplift} />
+      <ModelSlider label="Annual ecommerce revenue" note="Estimate — illustrative starting point. Replace with Skechers actuals." value={revenue} limits={revenueLimits.annualRevenue} step={10_000_000} onChange={setRevenue} money />
+      <ModelSlider label="Share of ecommerce revenue attributable to site search" note="Estimate — adjustable, 12% by default. Revenue from sessions involving site search." value={share} limits={revenueLimits.searchSharePct} step={1} onChange={setShare} />
+      <ModelSlider label="Expected search revenue per visitor (RPV) uplift" note="Estimate — adjustable uplift assumption. RPV measures revenue generated per visitor. Improvements can reflect conversion, average order value, or both." value={uplift} limits={revenueLimits.upliftPct} step={1} onChange={setUplift} />
       <Button variant="outline" onClick={() => {setRevenue(a.calculator.annualRevenue);setShare(a.calculator.searchSharePct);setUplift(a.calculator.upliftPct);}}><RotateCcw />Reset to defaults</Button>
     </div><div className="flex flex-col justify-center rounded-lg bg-close p-6 text-navy-foreground md:p-10"><p className="eyebrow text-sky">Modeled incremental annual revenue</p><p data-revenue-result aria-live="polite" className="mt-5 font-display text-5xl font-semibold tabular-nums md:text-6xl">{millions(model.incrementalRevenue)}</p><p className="mt-2 text-xl">Potential Annual Incremental Revenue</p><dl className="mt-8 space-y-4 border-t border-navy-muted/30 pt-6 text-sm"><div className="flex flex-wrap justify-between gap-2"><dt>Annual ecommerce revenue</dt><dd>{usd(revenue)}</dd></div><div className="flex flex-wrap justify-between gap-2"><dt>Search revenue share</dt><dd>{share}%</dd></div><div className="flex flex-wrap justify-between gap-2"><dt>Search-attributed revenue</dt><dd>{usd(model.searchRevenue)}</dd></div><div className="flex flex-wrap justify-between gap-2"><dt>Expected RPV uplift</dt><dd>{uplift}%</dd></div><div className="flex flex-wrap justify-between gap-2 border-t border-navy-muted/30 pt-4 font-semibold"><dt>Incremental annual revenue</dt><dd>{usd(model.incrementalRevenue)}</dd></div></dl></div></div>
     <div className="reveal mt-8 grid gap-4 md:grid-cols-3">{modeledScenarios.map(s => <article key={s.name} className="rounded-lg border bg-secondary p-5"><p className="text-sm font-semibold">{s.name} · {s.upliftPct}% modeled uplift</p><p className="mt-2 text-2xl font-semibold text-primary">{usd(searchRevenueModel(revenue,share,s.upliftPct).incrementalRevenue)}<span className="ml-1 text-xs text-muted-foreground">/ year</span></p></article>)}</div><p className="mt-5 text-xs leading-relaxed text-muted-foreground">Model: annual ecommerce revenue × search revenue share × expected RPV uplift. Assumes constant traffic and no material change in search visitor mix. Search share is a proxy for the eligible revenue base. RPV is the single modeled uplift, so conversion and AOV lifts are not added again.</p>
   </div></section>;
 }
 
-/* 5 — Footwear */
+/* 5 — Connected ACS intelligence */
+const intelligence = [
+  { icon: Search, title: "Long-tail understanding", body: "Interprets highly descriptive searches — like “boots for slippery rainy hikes” — even when that exact phrase has little or no query history." },
+  { icon: Eye, title: "Semantic product understanding", body: "Finds relevant products when the shopper's words never appear in the title or description, using catalog text and imagery together." },
+  { icon: Rocket, title: "Cold-start relevance", body: "Reasons about new products and previously unseen queries without depending only on accumulated clicks." },
+  { icon: Target, title: "Commerce-oriented optimization", body: "Uses real and simulated shopping-journey signals to favor discovery aligned with purchase intent and conversion." },
+];
 export function Footwear() {
   return (
-    <section className="bg-muted py-32">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="reveal max-w-3xl">
-          <Eyebrow>04 · Built for footwear commerce</Eyebrow>
-          <h2 className="text-4xl font-semibold md:text-6xl">The next generation of footwear discovery.</h2>
+    <section id="intelligence" className="relative overflow-hidden bg-navy py-28 text-navy-foreground">
+      <Cloud className="pointer-events-none absolute -right-20 top-16 w-96 text-sky/10" />
+      <div className="relative mx-auto max-w-7xl px-6">
+        <div className="reveal max-w-4xl">
+          <Eyebrow dark>05 · How it works together</Eyebrow>
+          <h2 className="text-4xl font-semibold md:text-6xl">Search Intelligence That Doesn't Have to <span className="text-sky">Wait for the Next Click.</span></h2>
+          <p className="mt-6 max-w-2xl text-lg text-navy-muted">Product understanding, a customer-specific model and simulated shopping journeys feed one another — so relevance doesn't depend only on what shoppers clicked yesterday.</p>
         </div>
-        <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-5">
-          {a.challenges.map((c, i) => (
-            <div key={c.title} className="reveal group flex flex-col rounded-3xl border bg-card p-6 shadow-soft transition-transform duration-500 hover:-translate-y-2" style={{ transitionDelay: `${i * 80}ms` }}>
-              <span className="font-display text-5xl font-semibold text-gradient">0{i + 1}</span>
-              <h3 className="mt-6 text-lg font-semibold">{c.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{c.body}</p>
-              <div className="mt-auto pt-6">
-                <div className="rounded-xl bg-accent p-3 text-xs font-semibold text-accent-foreground">ACS opportunity → {c.acs}</div>
-              </div>
-            </div>
+        <div className="reveal mt-12 grid gap-4 md:grid-cols-3">
+          {[{ icon: Layers, t: "Product understanding", d: "Catalog text + product imagery" }, { icon: Sparkles, t: "Customer-specific model", d: "Built around Skechers' catalog and shoppers" }, { icon: Target, t: "Simulated shopping journeys", d: "Added signals beyond historical clickstream" }].map(({ icon: Icon, t, d }) => (
+            <div key={t} className="rounded-2xl border border-sky/20 bg-primary/15 p-5"><Icon className="size-6 text-sky" /><p className="mt-3 font-semibold">{t}</p><p className="mt-1 text-sm text-navy-muted">{d}</p></div>
+          ))}
+        </div>
+        <div className="reveal my-6 flex items-center justify-center gap-3 text-sm font-semibold text-sky"><span className="h-px w-16 bg-sky/40" />Combined, they enable<span className="h-px w-16 bg-sky/40" /></div>
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {intelligence.map(({ icon: Icon, title, body }, i) => (
+            <article key={title} className="reveal flex flex-col rounded-3xl bg-card p-6 text-card-foreground shadow-soft" style={{ transitionDelay: `${i * 80}ms` }}>
+              <span className="flex size-11 items-center justify-center rounded-xl bg-primary text-primary-foreground"><Icon className="size-5" /></span>
+              <h3 className="mt-5 text-lg font-semibold">{title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
+            </article>
           ))}
         </div>
       </div>
@@ -354,7 +366,7 @@ export function Agent() {
     <section className="mx-auto max-w-7xl px-6 py-32">
       <div className="grid items-center gap-14 lg:grid-cols-2">
         <div className="reveal">
-          <Eyebrow>05 · Meet the conversational shopper</Eyebrow>
+          <Eyebrow>06 · Meet the conversational shopper</Eyebrow>
           <h2 className="text-4xl font-semibold md:text-6xl">What if shoppers didn't have to know what to search for?</h2>
           <p className="mt-6 max-w-md text-lg text-muted-foreground">
             A conceptual look at a guided, conversational experience powered by Salesforce Shopper Agent.
@@ -378,9 +390,23 @@ export function Agent() {
             {step >= 6 && (
               <>
                 <Bubble>{g.answer}</Bubble>
-                <div className="grid grid-cols-3 gap-3">
-                  {g.products.map((p, i) => <ProductCard key={p.name} p={p} delay={i * 120} />)}
+                <div className="animate-in fade-in grid grid-cols-3 gap-3 duration-500">
+                  {g.products.map((p, i) => {
+                    const c = g.comparison[i];
+                    return <div key={p.name} className="flex min-w-0 flex-col rounded-2xl border bg-card p-3 shadow-soft">
+                      <div className="flex aspect-[3/2] items-center justify-center rounded-lg p-1"><img src={p.image} alt={p.name} className="h-full w-full object-contain" /></div>
+                      <p className="mt-2 text-xs font-semibold leading-snug">{p.name}</p>
+                      <p className="text-xs font-semibold text-primary">{p.price}</p>
+                      {c && <dl className="mt-2 space-y-1 border-t pt-2 text-[11px] leading-snug text-muted-foreground">
+                        <div><dt className="inline font-semibold text-foreground">Best for: </dt><dd className="inline">{c.bestUse}</dd></div>
+                        <div><dt className="inline font-semibold text-foreground">Comfort: </dt><dd className="inline">{c.comfort}</dd></div>
+                        <div><dt className="inline font-semibold text-foreground">Style: </dt><dd className="inline">{c.style}</dd></div>
+                        <div className="text-primary">{c.difference}</div>
+                      </dl>}
+                    </div>;
+                  })}
                 </div>
+                <Bubble>{g.closing}</Bubble>
               </>
             )}
           </div>
@@ -393,7 +419,7 @@ export function Agent() {
 /* 7 — Proof */
 export function Proof() {
   const [zoom, setZoom] = useState<string | null>(null);
-  return <section id="customers" className="bg-secondary py-24"><div className="mx-auto max-w-7xl px-6"><div className="reveal max-w-4xl"><Eyebrow>Real Customer Search Examples</Eyebrow><h2 className="text-4xl font-semibold md:text-5xl">Real Shoppers. Real Questions. More Relevant Results.</h2></div><div className="mt-12 grid gap-8 lg:grid-cols-3">{a.customerExamples.map(c => <article key={c.name} className="reveal min-w-0"><p className="text-xl font-bold">{c.name}</p><h3 className="mt-3 min-h-16 text-lg font-semibold">“{c.query}”</h3><Button variant="ghost" onClick={() => setZoom(c.screenshot)} aria-label={`Enlarge ${c.name} search screenshot`} className="relative mt-4 block h-auto w-full overflow-hidden rounded-lg border bg-card p-0"><img src={c.screenshot} alt={`${c.name} original search results for ${c.query}`} className="aspect-[4/5] w-full object-cover object-top" /><span className="absolute bottom-3 right-3 rounded-md bg-primary p-2 text-primary-foreground"><ZoomIn /></span></Button><p className="mt-5 text-sm leading-relaxed text-muted-foreground">{c.explanation}</p><p className="mt-4 text-sm font-semibold text-primary">{c.takeaway}</p></article>)}</div></div><Lightbox src={zoom} onClose={() => setZoom(null)} /></section>;
+  return <section id="customers" className="bg-secondary py-24"><div className="mx-auto max-w-7xl px-6"><div className="reveal max-w-4xl"><Eyebrow>03 · Real Customer Search Examples</Eyebrow><h2 className="text-4xl font-semibold md:text-5xl">Real Shoppers. Real Questions. More Relevant Results.</h2></div><div className="mt-12 grid gap-8 lg:grid-cols-3">{a.customerExamples.map(c => <article key={c.name} className="reveal min-w-0"><p className="text-xl font-bold">{c.name}</p><h3 className="mt-3 min-h-16 text-lg font-semibold">“{c.query}”</h3><Button variant="ghost" onClick={() => setZoom(c.screenshot)} aria-label={`Enlarge ${c.name} search screenshot`} className="relative mt-4 block h-auto w-full overflow-hidden rounded-lg border bg-card p-0"><img src={c.screenshot} alt={`${c.name} original search results for ${c.query}`} className="aspect-[4/5] w-full object-cover object-top" /><span className="absolute bottom-3 right-3 rounded-md bg-primary p-2 text-primary-foreground"><ZoomIn /></span></Button><p className="mt-5 text-sm leading-relaxed text-muted-foreground">{c.explanation}</p><p className="mt-4 text-sm font-semibold text-primary">{c.takeaway}</p></article>)}</div></div><Lightbox src={zoom} onClose={() => setZoom(null)} /></section>;
 }
 
 /* 8 — Close */
@@ -406,11 +432,11 @@ export function Closing() {
         <div>
           <h2 className="text-4xl font-semibold leading-[1.08] md:text-6xl">Your Shoppers Shouldn't Have to Think Like Your Search Engine.</h2>
           <p className="mt-8 max-w-2xl text-lg leading-relaxed md:text-xl">
-            From natural-language discovery to richer product understanding, ACS helps bridge the gap between what shoppers mean and what your catalog contains — creating more relevant experiences while reducing the manual effort behind them.
+            From natural-language discovery to richer product understanding, ACS helps you move from reactive search maintenance to intelligent product discovery — and frees your merchandisers to focus on strategic storytelling.
           </p>
           <p className="mt-8 inline-block rounded-2xl bg-primary px-6 py-4 text-lg font-semibold text-primary-foreground">Let your search understand your shoppers. Let your teams focus on growing the business.</p>
         </div>
-        <div className="mx-auto w-56"><MascotSlot name="Astro" dark /></div>
+        <div className="relative mx-auto w-64"><Cloud className="pointer-events-none absolute inset-x-0 bottom-0 text-sky/15" /><Mascot name="Astro" className="animate-float relative" /></div>
       </div>
     </section>
   );
