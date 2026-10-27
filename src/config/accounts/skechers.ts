@@ -2,8 +2,8 @@ import walkingShot from "@/assets/shots/walking.png.asset.json";
 import marathonShot from "@/assets/shots/marathon.png.asset.json";
 import hikesShot from "@/assets/shots/hikes.png.asset.json";
 import weddingShot from "@/assets/shots/wedding.png.asset.json";
-import pacsun from "@/assets/customers/pacsun.png.asset.json";
-import westMarine from "@/assets/customers/west-marine.png.asset.json";
+import pacsun from "@/assets/customers/pacsun-v2.png.asset.json";
+import westMarine from "@/assets/customers/west-marine-v2.png.asset.json";
 import bootBarn from "@/assets/customers/boot-barn.png.asset.json";
 import { catalog } from "./skechers-products";
 import type { AccountConfig } from "./types";
@@ -69,9 +69,9 @@ export const skechers: AccountConfig = {
     { value: "+12%", label: "Revenue per user" },
   ],
   customerExamples: [
-    { name: "West Marine", query: "Cleaning supplies for the head", screenshot: westMarine.url, explanation: "In boating terminology, ‘head’ means the bathroom aboard a vessel. The results show marine sanitation and cleaning products.", takeaway: "Understands industry-specific terminology." },
+    { name: "West Marine", query: "Cleaning supplies for the head", screenshot: westMarine.url, explanation: "In boating terminology, ‘head’ means the bathroom aboard a vessel. The results show marine head cleaners and holding-tank treatments rather than generic cleaning products.", takeaway: "Understands marine terminology." },
     { name: "Boot Barn", query: "Outfits for Coachella", screenshot: bootBarn.url, explanation: "Shoppers describe occasions, not just categories. Event-based language connects with relevant apparel and styles.", takeaway: "Understands occasions and style." },
-    { name: "PacSun", query: "Women's comfortable but not too baggy jeans", screenshot: pacsun.url, explanation: "Conversational fit preferences express a balance of comfort and shape rather than a single exact keyword.", takeaway: "Understands nuanced fit preferences." },
+    { name: "PacSun", query: "Women's comfortable but not too baggy jeans", screenshot: pacsun.url, explanation: "The shopper describes a balance of comfort and shape rather than a single keyword. The results show relaxed and straight-leg women's denim.", takeaway: "Understands descriptive fit preferences." },
   ],
   challenges: [
     { title: "Complex shopper intent", body: "Shoppers describe activities, occasions and people — not SKUs.", acs: "Interpret natural-language queries beyond literal keywords." },
@@ -84,7 +84,13 @@ export const skechers: AccountConfig = {
     shopper: "I'm going on vacation and need comfortable shoes for walking all day, but I also want something nice enough for dinner.",
     followUp: "Sounds like a great trip! Will you be mostly on city streets or trails during the day — and do you prefer sandals or closed shoes for evenings?",
     reply: "City streets, and sandals are fine.",
-    answer: "Here are a few versatile styles that could go from sightseeing to dinner:",
+    answer: "Here are three options, depending on how you want to balance comfort and style:",
     products: [catalog.walking[1], catalog.wedding[1], catalog.walking[0]],
+    comparison: [
+      { bestUse: "All-day sightseeing", comfort: "Arch Fit supportive footbed", style: "Sporty-neutral", difference: "Most walking-focused of the three" },
+      { bestUse: "Evenings and dinner", comfort: "Low-profile, soft sole", style: "Dressier black straps", difference: "Most polished for dinner" },
+      { bestUse: "Day-to-evening", comfort: "Arch Fit footbed, adjustable straps", style: "Clean black sport sandal", difference: "Lowest price; most adjustable fit" },
+    ],
+    closing: "If you want one pair for both, the Exhilarate is the versatile pick. Want me to check sizes?",
   },
 };
