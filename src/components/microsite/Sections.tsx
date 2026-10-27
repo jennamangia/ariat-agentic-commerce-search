@@ -9,13 +9,29 @@ const a = account;
 
 export function useReveal() {
   useEffect(() => {
-    const els = document.querySelectorAll(".reveal");
+    const show = (el: Element) => el.classList.add("in");
+    if (typeof IntersectionObserver === "undefined") {
+      document.querySelectorAll(".reveal").forEach(show);
+      return;
+    }
     const io = new IntersectionObserver(
-      (es) => es.forEach((e) => e.isIntersecting && e.target.classList.add("in")),
-      { threshold: 0.15 },
+      (es) => es.forEach((e) => { if (e.isIntersecting) { show(e.target); io.unobserve(e.target); } }),
+      { threshold: 0, rootMargin: "0px 0px -10% 0px" },
     );
-    els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
+    const watch = () => document.querySelectorAll(".reveal:not(.in)").forEach((el) => io.observe(el));
+    // Backstop when the browser throttles observers (embedded or background previews):
+    // reveal anything already above the bottom of the viewport.
+    const check = () => document.querySelectorAll(".reveal:not(.in)").forEach((el) => {
+      if (el.getBoundingClientRect().top < window.innerHeight) show(el);
+    });
+    watch();
+    check();
+    // Sections re-rendered or remounted after mount (hot updates, keyed tab changes) get new nodes.
+    const mo = new MutationObserver(() => { watch(); check(); });
+    mo.observe(document.body, { childList: true, subtree: true });
+    window.addEventListener("scroll", check, { passive: true });
+    window.addEventListener("resize", check);
+    return () => { io.disconnect(); mo.disconnect(); window.removeEventListener("scroll", check); window.removeEventListener("resize", check); };
   }, []);
 }
 
