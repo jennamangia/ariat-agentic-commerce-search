@@ -3,7 +3,7 @@ import walking from "@/assets/shots/walking.png.asset.json";
 import marathon from "@/assets/shots/marathon.png.asset.json";
 import hikes from "@/assets/shots/hikes.png.asset.json";
 import wedding from "@/assets/shots/wedding.png.asset.json";
-import hero from "@/assets/hero-shoe.jpg";
+import hero from "@/assets/products/burst.jpg.asset.json";
 import pacsun from "@/assets/customers/pacsun.png.asset.json";
 import westMarine from "@/assets/customers/west-marine.png.asset.json";
 import bootBarn from "@/assets/customers/boot-barn.png.asset.json";
@@ -17,7 +17,7 @@ import type { AccountConfig } from "./types";
 export const skechers: AccountConfig = {
   id: "skechers",
   name: "Skechers",
-  heroImage: hero,
+  heroImage: hero.url,
   heroSearches: [
     "best marathon shoes for flat feet",
     "low heel sandals for casual wedding",
