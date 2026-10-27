@@ -3,7 +3,7 @@ import { account, type Product } from "@/config/accounts";
 
 import { Button } from "@/components/ui/button";
 import { RotateCcw, Search, Image as ImageIcon, Sparkles, X, ZoomIn, Layers, Eye, Rocket, Target } from "lucide-react";
-import astro from "@/assets/characters/astro.png.asset.json";
+import astro from "@/assets/characters/astro-trim.png.asset.json";
 import einstein from "@/assets/characters/einstein.png.asset.json";
 import { searchRevenueModel, revenueLimits, modeledScenarios } from "@/lib/revenue-model";
 
@@ -419,7 +419,7 @@ export function Agent() {
 /* 7 — Proof */
 export function Proof() {
   const [zoom, setZoom] = useState<string | null>(null);
-  return <section id="customers" className="bg-secondary py-24"><div className="mx-auto max-w-7xl px-6"><div className="reveal max-w-4xl"><Eyebrow>03 · Real Customer Search Examples</Eyebrow><h2 className="text-4xl font-semibold md:text-5xl">Real Shoppers. Real Questions. More Relevant Results.</h2></div><div className="mt-12 grid gap-8 lg:grid-cols-3">{a.customerExamples.map(c => <article key={c.name} className="reveal min-w-0"><p className="text-xl font-bold">{c.name}</p><h3 className="mt-3 min-h-16 text-lg font-semibold">“{c.query}”</h3><Button variant="ghost" onClick={() => setZoom(c.screenshot)} aria-label={`Enlarge ${c.name} search screenshot`} className="relative mt-4 block h-auto w-full overflow-hidden rounded-lg border bg-card p-0"><img src={c.screenshot} alt={`${c.name} original search results for ${c.query}`} className="aspect-[4/5] w-full object-cover object-top" /><span className="absolute bottom-3 right-3 rounded-md bg-primary p-2 text-primary-foreground"><ZoomIn /></span></Button><p className="mt-5 text-sm leading-relaxed text-muted-foreground">{c.explanation}</p><p className="mt-4 text-sm font-semibold text-primary">{c.takeaway}</p></article>)}</div></div><Lightbox src={zoom} onClose={() => setZoom(null)} /></section>;
+  return <section id="customers" className="bg-secondary py-24"><div className="mx-auto max-w-7xl px-6"><div className="reveal max-w-4xl"><Eyebrow>03 · Real Customer Search Examples</Eyebrow><h2 className="text-4xl font-semibold md:text-5xl">Real Shoppers. Real Questions. More Relevant Results.</h2></div><div className="mt-12 grid gap-8 lg:grid-cols-3">{a.customerExamples.map(c => <article key={c.name} className="reveal min-w-0"><p className="text-xl font-bold">{c.name}</p><h3 className="mt-3 min-h-16 text-lg font-semibold">“{c.query}”</h3><Button variant="ghost" onClick={() => setZoom(c.screenshot)} aria-label={`Enlarge ${c.name} search screenshot`} className="relative mt-4 block h-auto w-full overflow-hidden rounded-lg border bg-card p-0"><img src={c.screenshot} alt={`${c.name} original search results for ${c.query}`} className="aspect-[4/5] w-full object-cover object-left-top" /><span className="absolute bottom-3 right-3 rounded-md bg-primary p-2 text-primary-foreground"><ZoomIn /></span></Button><p className="mt-5 text-sm leading-relaxed text-muted-foreground">{c.explanation}</p><p className="mt-4 text-sm font-semibold text-primary">{c.takeaway}</p></article>)}</div></div><Lightbox src={zoom} onClose={() => setZoom(null)} /></section>;
 }
 
 /* 8 — Close */
@@ -436,7 +436,7 @@ export function Closing() {
           </p>
           <p className="mt-8 inline-block rounded-2xl bg-primary px-6 py-4 text-lg font-semibold text-primary-foreground">Let your search understand your shoppers. Let your teams focus on growing the business.</p>
         </div>
-        <div className="relative mx-auto w-64"><Cloud className="pointer-events-none absolute inset-x-0 bottom-0 text-sky/15" /><Mascot name="Astro" className="animate-float relative" /></div>
+        <div className="relative mx-auto w-56 md:w-64"><Cloud className="pointer-events-none absolute inset-x-0 bottom-0 text-sky/15" /><Mascot name="Astro" className="animate-float relative" /></div>
       </div>
     </section>
   );
