@@ -69,8 +69,9 @@
   --warn: oklch(0.72 0.16 60);
   --ok: oklch(0.68 0.15 160);
 
-  --gradient-hero: radial-gradient(ellipse at 70% 40%, oklch(0.5 0.2 255 / 0.55), transparent 60%),
-    linear-gradient(180deg, oklch(0.16 0.07 262), oklch(0.22 0.1 260));
+  --gradient-hero: radial-gradient(ellipse at 80% 30%, oklch(0.78 0.13 220 / 0.45), transparent 55%),
+    radial-gradient(ellipse at 10% 90%, #0176D3, transparent 60%),
+    linear-gradient(160deg, oklch(0.2 0.08 260), oklch(0.32 0.15 255));
   --gradient-brand: linear-gradient(120deg, oklch(0.56 0.19 255), oklch(0.72 0.14 230));
   --gradient-close: radial-gradient(ellipse at 50% 120%, oklch(0.62 0.18 240 / 0.8), transparent 60%),
     linear-gradient(160deg, oklch(0.18 0.08 262), oklch(0.32 0.15 258));

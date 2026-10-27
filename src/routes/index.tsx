@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Hero, Today, Reimagined, Business, Footwear, Agent, Proof, Closing, useReveal } from "@/components/microsite/Sections";
-import { VisualUnderstanding, Technology, Merchandising } from "@/components/microsite/Understanding";
+import { Differentiators, Technology, Merchandising } from "@/components/microsite/Understanding";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -23,12 +23,12 @@ function Index() {
       <Hero />
       <Today />
       <Reimagined />
-      <VisualUnderstanding />
-      <Business />
+      <Proof />
+      <Differentiators />
+      <Technology />
       <Footwear />
       <Agent />
-      <Proof />
-      <Technology />
+      <Business />
       <Merchandising />
       <Closing />
     </main>

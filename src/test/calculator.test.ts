@@ -2,11 +2,11 @@ import { describe, it, expect } from "vitest";
 import { searchRevenueModel, revenueLimits, modeledScenarios } from "@/lib/revenue-model";
 
 describe("Skechers modeled revenue", () => {
-  it("$500M × 25% produces a $125M eligible revenue base", () => {
-    expect(searchRevenueModel(500_000_000, 25, 12).searchRevenue).toBe(125_000_000);
+  it("$500M × 12% produces a $60M search-attributed base", () => {
+    expect(searchRevenueModel(500_000_000, 12, 12).searchRevenue).toBe(60_000_000);
   });
-  it("12% uplift on the eligible base produces $15M, without double counting", () => {
-    expect(searchRevenueModel(500_000_000, 25, 12).incrementalRevenue).toBe(15_000_000);
+  it("12% RPV uplift on $60M produces $7.2M", () => {
+    expect(searchRevenueModel(500_000_000, 12, 12).incrementalRevenue).toBeCloseTo(7_200_000);
   });
   it("0% uplift produces no incremental revenue", () => {
     expect(searchRevenueModel(500_000_000, 25, 0).incrementalRevenue).toBe(0);
@@ -24,6 +24,6 @@ describe("Skechers modeled revenue", () => {
     expect(revenueLimits.upliftPct).toEqual({ min: 0, max: 25 });
   });
   it("models the 5%, 12%, 18% scenarios on the same eligible base", () => {
-    expect(modeledScenarios.map(s => searchRevenueModel(500_000_000, 25, s.upliftPct).incrementalRevenue)).toEqual([6_250_000, 15_000_000, 22_500_000]);
+    expect(modeledScenarios.map(s => Math.round(searchRevenueModel(500_000_000, 12, s.upliftPct).incrementalRevenue))).toEqual([3_000_000, 7_200_000, 10_800_000]);
   });
 });
