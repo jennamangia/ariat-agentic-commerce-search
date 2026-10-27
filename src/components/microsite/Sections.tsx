@@ -60,32 +60,58 @@ function SearchIcon() {
   );
 }
 
+export function Cloud({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 120 70" aria-hidden className={className} fill="currentColor">
+      <path d="M30 68a28 28 0 0 1-3-55.8A30 30 0 0 1 82 12a24 24 0 0 1 35 27A15 15 0 0 1 104 68Z" />
+    </svg>
+  );
+}
+
+/** Reserved slot for an approved Salesforce character asset (Astro, Einstein). */
+export function MascotSlot({ name, dark }: { name: string; dark?: boolean }) {
+  return (
+    <div data-mascot-slot={name} className={`flex aspect-square w-full flex-col items-center justify-center rounded-full border-2 border-dashed text-center ${dark ? "border-sky/50 text-navy-muted" : "border-primary/40 text-muted-foreground"}`}>
+      <Cloud className={`w-1/3 ${dark ? "text-sky/70" : "text-primary/60"}`} />
+      <p className="mt-3 text-xs font-semibold uppercase">{name}</p>
+      <p className="text-[11px]">Approved character artwork</p>
+    </div>
+  );
+}
+
 /* 1 — Hero */
 export function Hero() {
   return (
-    <section className="bg-hero relative flex min-h-[85svh] items-center overflow-hidden text-navy-foreground">
-      <div className="mx-auto grid w-full max-w-7xl items-center gap-10 px-6 py-24 lg:grid-cols-[1.1fr_1fr]">
+    <section className="bg-hero relative flex min-h-[88svh] items-center overflow-hidden text-navy-foreground">
+      <Cloud className="pointer-events-none absolute -left-16 top-16 w-72 text-sky/10" />
+      <Cloud className="pointer-events-none absolute right-10 top-10 w-40 text-sky/15" />
+      <Cloud className="pointer-events-none absolute -bottom-10 right-1/3 w-96 text-primary/20" />
+      <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-6 py-24 lg:grid-cols-[1.25fr_1fr]">
         <div className="relative z-10">
-          <Eyebrow dark>{a.name} × Agentic Commerce Search</Eyebrow>
-          <h1 className="text-5xl font-semibold leading-[1.02] md:text-7xl">
-            What if {a.name} understood every shopper's{" "}
-            <span className="font-serif font-normal italic text-sky">intent?</span>
+          <span className="inline-flex items-center gap-2 rounded-full border border-sky/30 bg-navy/40 px-4 py-1.5 text-xs font-bold uppercase text-sky">
+            <Cloud className="w-5" /> Salesforce · {a.name} × Agentic Commerce Search
+          </span>
+          <h1 className="mt-6 text-5xl font-semibold leading-[1.04] md:text-7xl">
+            What if {a.name} understood every shopper's <span className="text-sky">intent?</span>
           </h1>
           <p className="mt-6 max-w-xl text-lg text-navy-muted md:text-xl">
             Reimagining product discovery with Salesforce Agentic Commerce Search.
           </p>
-          <div className="mt-10 flex max-w-xl items-center gap-3 rounded-full bg-card px-6 py-4 text-lg text-card-foreground shadow-glow">
+          <div className="mt-10 flex max-w-xl items-center gap-3 rounded-2xl bg-card px-6 py-4 text-lg text-card-foreground shadow-glow">
             <span className="text-primary"><SearchIcon /></span>
             <Typewriter phrases={a.heroSearches} />
           </div>
         </div>
-        <img
-          src={a.heroImage}
-          alt="Premium athletic sneaker"
-          width={1600}
-          height={1008}
-          className="mask-fade animate-float relative w-full scale-125 mix-blend-screen lg:scale-150"
-        />
+        <div className="relative z-10 mx-auto w-full max-w-sm">
+          <div className="rounded-[2rem] border border-sky/20 bg-navy/40 p-6 shadow-glow backdrop-blur">
+            <MascotSlot name="Astro" dark />
+            <div className="mt-5 space-y-2">
+              {["Understands intent", "Reads product imagery", "Learns from simulated journeys"].map((t) => (
+                <p key={t} className="flex items-center gap-2 rounded-xl bg-primary/25 px-3 py-2 text-sm font-semibold"><Sparkles className="size-4 text-sky" />{t}</p>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
       <a href="#today" className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-xs text-navy-muted">
         <span className="flex h-9 w-5 justify-center rounded-full border border-navy-muted pt-1.5">
