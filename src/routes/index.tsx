@@ -1,24 +1,32 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Hero, Today, Reimagined, Business, Footwear, Agent, Proof, Closing, useReveal } from "@/components/microsite/Sections";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Skechers × Agentic Commerce Search — Reimagining Discovery" },
+      { name: "description", content: "An executive concept showing how Salesforce Agentic Commerce Search could transform product discovery for Skechers." },
+      { property: "og:title", content: "Skechers × Agentic Commerce Search" },
+      { property: "og:description", content: "From matching words to understanding shopper intent." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
+  useReveal();
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main>
+      <Hero />
+      <Today />
+      <Reimagined />
+      <Business />
+      <Footwear />
+      <Agent />
+      <Proof />
+      <Closing />
+    </main>
   );
 }
