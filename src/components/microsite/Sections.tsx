@@ -9,13 +9,21 @@ const a = account;
 
 export function useReveal() {
   useEffect(() => {
-    const els = document.querySelectorAll(".reveal");
+    const show = (el: Element) => el.classList.add("in");
+    if (typeof IntersectionObserver === "undefined") {
+      document.querySelectorAll(".reveal").forEach(show);
+      return;
+    }
     const io = new IntersectionObserver(
-      (es) => es.forEach((e) => e.isIntersecting && e.target.classList.add("in")),
-      { threshold: 0.15 },
+      (es) => es.forEach((e) => { if (e.isIntersecting) { show(e.target); io.unobserve(e.target); } }),
+      { threshold: 0, rootMargin: "0px 0px -10% 0px" },
     );
-    els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
+    const watch = () => document.querySelectorAll(".reveal:not(.in)").forEach((el) => io.observe(el));
+    watch();
+    // Sections re-rendered or remounted after mount (hot updates, keyed tab changes) get new nodes.
+    const mo = new MutationObserver(watch);
+    mo.observe(document.body, { childList: true, subtree: true });
+    return () => { io.disconnect(); mo.disconnect(); };
   }, []);
 }
 
