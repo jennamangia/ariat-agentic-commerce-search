@@ -13,3 +13,4 @@
 - Account-specific content (screenshots, queries, products, challenges, calculator defaults) lives in src/config/accounts/<id>.ts and is selected via ACTIVE_ACCOUNT; sections read only from `account` so new prospects need no component changes.
 - Revenue calculations and slider bounds live in the browser-safe revenue-model module, with concrete model tests; a single calculator separates historical outcomes from prospective revenue.
 - Additional educational sections live in a focused Understanding module while the original opening evidence section remains in Sections; this preserves existing interactions during sales-demo upgrades.
+- Account product selections and official source links live in the account's companion catalog module; imported CDN pointers retain authentic photographs without storing downloaded media in the repository.
