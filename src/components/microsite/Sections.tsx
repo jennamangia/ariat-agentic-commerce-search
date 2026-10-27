@@ -384,19 +384,19 @@ export function Proof() {
 /* 8 — Close */
 export function Closing() {
   return (
-    <section className="bg-close relative flex min-h-[85svh] items-center overflow-hidden text-navy-foreground">
-      <img src={a.heroImage} alt="" aria-hidden width={1600} height={1008} loading="lazy" className="pointer-events-none absolute -bottom-20 left-1/2 w-[900px] max-w-none -translate-x-1/2 mask-fade opacity-40 mix-blend-screen" />
-      <div className="reveal relative mx-auto max-w-5xl px-6 text-center">
-        <h2 className="text-5xl font-semibold leading-[1.02] md:text-7xl">
-          Your Shoppers Shouldn't Have to Think Like Your Search Engine.
-        </h2>
-        <p className="mx-auto mt-8 max-w-2xl text-lg text-navy-muted md:text-xl">
-          From natural-language discovery to richer product understanding, ACS helps bridge the gap between what shoppers mean and what your catalog contains — creating more relevant experiences while reducing the manual effort behind them.
-        </p><p className="mx-auto mt-8 max-w-3xl text-lg font-semibold text-sky">Let your search understand your shoppers. Let your teams focus on growing the business.</p>
+    <section className="relative overflow-hidden bg-navy py-28 text-navy-foreground md:py-36">
+      <Cloud className="pointer-events-none absolute -left-20 bottom-0 w-96 text-primary/25" />
+      <Cloud className="pointer-events-none absolute right-0 top-10 w-64 text-sky/10" />
+      <div className="reveal relative mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-[1fr_260px]">
+        <div>
+          <h2 className="text-4xl font-semibold leading-[1.08] md:text-6xl">Your Shoppers Shouldn't Have to Think Like Your Search Engine.</h2>
+          <p className="mt-8 max-w-2xl text-lg leading-relaxed md:text-xl">
+            From natural-language discovery to richer product understanding, ACS helps bridge the gap between what shoppers mean and what your catalog contains — creating more relevant experiences while reducing the manual effort behind them.
+          </p>
+          <p className="mt-8 inline-block rounded-2xl bg-primary px-6 py-4 text-lg font-semibold text-primary-foreground">Let your search understand your shoppers. Let your teams focus on growing the business.</p>
+        </div>
+        <div className="mx-auto w-56"><MascotSlot name="Astro" dark /></div>
       </div>
-      <p className="absolute bottom-6 left-0 right-0 text-center text-[11px] text-navy-muted">
-        Account-specific concept prepared for discussion. Not an official Salesforce or {a.name} publication. Screenshots are unaltered captures; all ACS results are illustrative.
-      </p>
     </section>
   );
 }
