@@ -29,7 +29,7 @@ const rules = [
 
 export function Merchandising() {
   return <section className="py-28"><div className="mx-auto max-w-7xl px-6">
-    <div className="reveal max-w-5xl"><p className="eyebrow mb-5 text-primary">08 · Merchandising Efficiency</p><h2 className="text-4xl font-semibold md:text-6xl">Merchandisers Should Be Storytellers. <span className="text-gradient">Not Search Relevance QA.</span></h2></div>
+    <div className="reveal max-w-5xl"><p className="eyebrow mb-5 text-primary">07 · Merchandising Efficiency</p><h2 className="text-4xl font-semibold md:text-6xl">Merchandisers Should Be Storytellers. <span className="text-gradient">Not Search Relevance QA.</span></h2></div>
     <div className="reveal mt-12 grid items-stretch gap-6 lg:grid-cols-[1fr_auto_1fr]">
       <div className="rounded-3xl border bg-secondary p-6 md:p-8"><p className="eyebrow text-muted-foreground">Traditional approach · manual rules</p><p className="mt-2 text-sm text-muted-foreground">Every phrasing needs a rule — and every rule needs upkeep.</p>
         <div className="mt-5 space-y-3">{rules.map(r => <div key={r.when} className="grid grid-cols-[auto_1fr] items-center gap-3 rounded-2xl bg-card p-4 shadow-soft"><span className="rounded-md bg-muted px-2 py-1 font-mono text-[11px] font-bold uppercase text-muted-foreground">If</span><p className="text-sm"><span className="font-semibold">{r.when}</span><span className="text-muted-foreground"> → {r.then}</span></p></div>)}</div>

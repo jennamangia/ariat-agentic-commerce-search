@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { account, type Product } from "@/config/accounts";
 
 import { Button } from "@/components/ui/button";
-import { RotateCcw, Search, Image as ImageIcon, Sparkles, X, ZoomIn, Layers, Eye, Rocket, Target } from "lucide-react";
+import { RotateCcw, Search, Image as ImageIcon, Sparkles, X, ZoomIn } from "lucide-react";
 import astro from "@/assets/characters/astro-trim.png.asset.json";
 import einstein from "@/assets/characters/einstein.png.asset.json";
 import { searchRevenueModel, revenueLimits, modeledScenarios } from "@/lib/revenue-model";
@@ -290,7 +290,7 @@ export function Business() {
   const [uplift, setUplift] = useState(a.calculator.upliftPct);
   const model = searchRevenueModel(revenue, share, uplift);
   return <section id="outcomes" className="py-24"><div className="mx-auto max-w-7xl px-6">
-    <div className="reveal"><Eyebrow>07 · Customer Success Metrics</Eyebrow><h2 className="text-4xl font-semibold md:text-5xl">Better discovery. Measurable business impact.</h2></div>
+    <div className="reveal"><Eyebrow>06 · Customer Success Metrics</Eyebrow><h2 className="text-4xl font-semibold md:text-5xl">Better discovery. Measurable business impact.</h2></div>
     <div className="reveal mt-10 grid grid-cols-2 gap-4 lg:grid-cols-3">{a.outcomes.map(m => <article key={m.label} className="rounded-lg border bg-card p-6 shadow-soft"><p className="font-display text-4xl font-semibold text-primary md:text-5xl">{m.value}</p><p className="mt-3 text-sm font-semibold">{m.label}</p></article>)}</div>
     <p className="mt-5 max-w-4xl text-xs leading-relaxed text-muted-foreground">Source: Customer Success Metrics — outcomes reported by Agentic Commerce Search customers. Individual results vary and are not a guarantee of performance.</p>
     <div className="reveal mt-20 border-t pt-14"><Eyebrow>Modeled Skechers Opportunity</Eyebrow><h2 className="text-4xl font-semibold md:text-5xl">What Could This Mean for {a.name}?</h2><p className="mt-4 text-lg text-muted-foreground">Explore how improvements in search performance could translate into incremental ecommerce revenue.</p></div>
@@ -304,6 +304,7 @@ export function Business() {
   </div></section>;
 }
 
+/* 5 — Agent */
 export function Agent() {
   const ref = useRef<HTMLDivElement>(null);
   const [step, setStep] = useState(0);
@@ -331,7 +332,7 @@ export function Agent() {
     <section className="mx-auto max-w-7xl px-6 py-32">
       <div className="grid items-center gap-14 lg:grid-cols-2">
         <div className="reveal">
-          <Eyebrow>06 · Meet the conversational shopper</Eyebrow>
+          <Eyebrow>05 · Meet the conversational shopper</Eyebrow>
           <h2 className="text-4xl font-semibold md:text-6xl">What if shoppers didn't have to know what to search for?</h2>
           <p className="mt-6 max-w-md text-lg text-muted-foreground">
             A conceptual look at a guided, conversational experience powered by Salesforce Shopper Agent.
@@ -381,13 +382,13 @@ export function Agent() {
   );
 }
 
-/* 7 — Proof */
+/* 6 — Proof */
 export function Proof() {
   const [zoom, setZoom] = useState<string | null>(null);
   return <section id="customers" className="bg-secondary py-24"><div className="mx-auto max-w-7xl px-6"><div className="reveal max-w-4xl"><Eyebrow>03 · Real Customer Search Examples</Eyebrow><h2 className="text-4xl font-semibold md:text-5xl">Real Shoppers. Real Questions. More Relevant Results.</h2></div><div className="mt-12 grid gap-x-8 gap-y-12 lg:grid-cols-3 lg:gap-y-0">{a.customerExamples.map(c => <article key={c.name} className="reveal min-w-0 lg:grid lg:grid-rows-subgrid lg:row-span-5"><p className="text-xl font-bold">{c.name}</p><h3 className="min-h-16 pt-3 text-lg font-semibold">“{c.query}”</h3><div className="flex pt-4"><Button variant="ghost" onClick={() => setZoom(c.screenshot)} aria-label={`Enlarge ${c.name} search screenshot`} className="relative flex h-auto w-full items-center justify-center rounded-lg border bg-card p-0"><span className="relative block w-full"><img src={c.screenshot} alt={`${c.name} original search results for ${c.query}`} className="block h-auto w-full object-contain" /><span className="absolute bottom-3 right-3 rounded-md bg-primary p-2 text-primary-foreground"><ZoomIn /></span></span></Button></div><p className="pt-5 text-sm leading-relaxed text-muted-foreground">{c.explanation}</p><p className="pt-4 text-sm font-semibold text-primary">{c.takeaway}</p></article>)}</div></div><Lightbox src={zoom} onClose={() => setZoom(null)} /></section>;
 }
 
-/* 8 — Close */
+/* 7 — Close */
 export function Closing() {
   return (
     <section className="relative overflow-hidden bg-navy py-28 text-navy-foreground md:py-36">
