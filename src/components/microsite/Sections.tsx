@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { account, type Product } from "@/config/accounts";
 
 import { Button } from "@/components/ui/button";
-import { RotateCcw, Search, Image as ImageIcon, Sparkles, X, ZoomIn, Layers, Eye, Rocket, Target } from "lucide-react";
+import { RotateCcw, Search, Image as ImageIcon, Sparkles, X, ZoomIn } from "lucide-react";
 import astro from "@/assets/characters/astro-trim.png.asset.json";
 import einstein from "@/assets/characters/einstein.png.asset.json";
 import { searchRevenueModel, revenueLimits, modeledScenarios } from "@/lib/revenue-model";
@@ -290,7 +290,7 @@ export function Business() {
   const [uplift, setUplift] = useState(a.calculator.upliftPct);
   const model = searchRevenueModel(revenue, share, uplift);
   return <section id="outcomes" className="py-24"><div className="mx-auto max-w-7xl px-6">
-    <div className="reveal"><Eyebrow>07 · Customer Success Metrics</Eyebrow><h2 className="text-4xl font-semibold md:text-5xl">Better discovery. Measurable business impact.</h2></div>
+    <div className="reveal"><Eyebrow>06 · Customer Success Metrics</Eyebrow><h2 className="text-4xl font-semibold md:text-5xl">Better discovery. Measurable business impact.</h2></div>
     <div className="reveal mt-10 grid grid-cols-2 gap-4 lg:grid-cols-3">{a.outcomes.map(m => <article key={m.label} className="rounded-lg border bg-card p-6 shadow-soft"><p className="font-display text-4xl font-semibold text-primary md:text-5xl">{m.value}</p><p className="mt-3 text-sm font-semibold">{m.label}</p></article>)}</div>
     <p className="mt-5 max-w-4xl text-xs leading-relaxed text-muted-foreground">Source: Customer Success Metrics — outcomes reported by Agentic Commerce Search customers. Individual results vary and are not a guarantee of performance.</p>
     <div className="reveal mt-20 border-t pt-14"><Eyebrow>Modeled Skechers Opportunity</Eyebrow><h2 className="text-4xl font-semibold md:text-5xl">What Could This Mean for {a.name}?</h2><p className="mt-4 text-lg text-muted-foreground">Explore how improvements in search performance could translate into incremental ecommerce revenue.</p></div>
@@ -304,44 +304,7 @@ export function Business() {
   </div></section>;
 }
 
-/* 5 — Connected ACS intelligence */
-const intelligence = [
-  { icon: Search, title: "Long-tail understanding", body: "Interprets highly descriptive searches — like “boots for slippery rainy hikes” — even when that exact phrase has little or no query history." },
-  { icon: Eye, title: "Semantic product understanding", body: "Finds relevant products when the shopper's words never appear in the title or description, using catalog text and imagery together." },
-  { icon: Rocket, title: "Cold-start relevance", body: "Reasons about new products and previously unseen queries without depending only on accumulated clicks." },
-  { icon: Target, title: "Commerce-oriented optimization", body: "Uses real and simulated shopping-journey signals to favor discovery aligned with purchase intent and conversion." },
-];
-export function Footwear() {
-  return (
-    <section id="intelligence" className="relative overflow-hidden bg-navy py-28 text-navy-foreground">
-      <Cloud className="pointer-events-none absolute -right-20 top-16 w-96 text-sky/10" />
-      <div className="relative mx-auto max-w-7xl px-6">
-        <div className="reveal max-w-4xl">
-          <Eyebrow dark>05 · How it works together</Eyebrow>
-          <h2 className="text-4xl font-semibold md:text-6xl">Search Intelligence That Doesn't Have to <span className="text-sky">Wait for the Next Click.</span></h2>
-          <p className="mt-6 max-w-2xl text-lg text-navy-muted">Product understanding, a customer-specific model and simulated shopping journeys feed one another — so relevance doesn't depend only on what shoppers clicked yesterday.</p>
-        </div>
-        <div className="reveal mt-12 grid gap-4 md:grid-cols-3">
-          {[{ icon: Layers, t: "Product understanding", d: "Catalog text + product imagery" }, { icon: Sparkles, t: "Customer-specific model", d: "Built around Skechers' catalog and shoppers" }, { icon: Target, t: "Simulated shopping journeys", d: "Added signals beyond historical clickstream" }].map(({ icon: Icon, t, d }) => (
-            <div key={t} className="rounded-2xl border border-sky/20 bg-primary/15 p-5"><Icon className="size-6 text-sky" /><p className="mt-3 font-semibold">{t}</p><p className="mt-1 text-sm text-navy-muted">{d}</p></div>
-          ))}
-        </div>
-        <div className="reveal my-6 flex items-center justify-center gap-3 text-sm font-semibold text-sky"><span className="h-px w-16 bg-sky/40" />Combined, they enable<span className="h-px w-16 bg-sky/40" /></div>
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {intelligence.map(({ icon: Icon, title, body }, i) => (
-            <article key={title} className="reveal flex flex-col rounded-3xl bg-card p-6 text-card-foreground shadow-soft" style={{ transitionDelay: `${i * 80}ms` }}>
-              <span className="flex size-11 items-center justify-center rounded-xl bg-primary text-primary-foreground"><Icon className="size-5" /></span>
-              <h3 className="mt-5 text-lg font-semibold">{title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* 6 — Agent */
+/* 5 — Agent */
 export function Agent() {
   const ref = useRef<HTMLDivElement>(null);
   const [step, setStep] = useState(0);
@@ -369,7 +332,7 @@ export function Agent() {
     <section className="mx-auto max-w-7xl px-6 py-32">
       <div className="grid items-center gap-14 lg:grid-cols-2">
         <div className="reveal">
-          <Eyebrow>06 · Meet the conversational shopper</Eyebrow>
+          <Eyebrow>05 · Meet the conversational shopper</Eyebrow>
           <h2 className="text-4xl font-semibold md:text-6xl">What if shoppers didn't have to know what to search for?</h2>
           <p className="mt-6 max-w-md text-lg text-muted-foreground">
             A conceptual look at a guided, conversational experience powered by Salesforce Shopper Agent.
@@ -419,13 +382,13 @@ export function Agent() {
   );
 }
 
-/* 7 — Proof */
+/* 6 — Proof */
 export function Proof() {
   const [zoom, setZoom] = useState<string | null>(null);
   return <section id="customers" className="bg-secondary py-24"><div className="mx-auto max-w-7xl px-6"><div className="reveal max-w-4xl"><Eyebrow>03 · Real Customer Search Examples</Eyebrow><h2 className="text-4xl font-semibold md:text-5xl">Real Shoppers. Real Questions. More Relevant Results.</h2></div><div className="mt-12 grid gap-x-8 gap-y-12 lg:grid-cols-3 lg:gap-y-0">{a.customerExamples.map(c => <article key={c.name} className="reveal min-w-0 lg:grid lg:grid-rows-subgrid lg:row-span-5"><p className="text-xl font-bold">{c.name}</p><h3 className="min-h-16 pt-3 text-lg font-semibold">“{c.query}”</h3><div className="flex pt-4"><Button variant="ghost" onClick={() => setZoom(c.screenshot)} aria-label={`Enlarge ${c.name} search screenshot`} className="relative flex h-auto w-full items-center justify-center rounded-lg border bg-card p-0"><span className="relative block w-full"><img src={c.screenshot} alt={`${c.name} original search results for ${c.query}`} className="block h-auto w-full object-contain" /><span className="absolute bottom-3 right-3 rounded-md bg-primary p-2 text-primary-foreground"><ZoomIn /></span></span></Button></div><p className="pt-5 text-sm leading-relaxed text-muted-foreground">{c.explanation}</p><p className="pt-4 text-sm font-semibold text-primary">{c.takeaway}</p></article>)}</div></div><Lightbox src={zoom} onClose={() => setZoom(null)} /></section>;
 }
 
-/* 8 — Close */
+/* 7 — Close */
 export function Closing() {
   return (
     <section className="relative overflow-hidden bg-navy py-28 text-navy-foreground md:py-36">

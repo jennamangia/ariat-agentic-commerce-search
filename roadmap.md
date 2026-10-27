@@ -6,3 +6,4 @@
 - [x] Polish Salesforce styling and verify desktop/mobile interactions.
 - [x] Add supplied Astro (opening, closing) and Einstein (differentiators) artwork.
 - [x] Final refinements: replacement products, customer screenshots, differentiators, intelligence, agent comparison, merchandising rules.
+- [x] Final presentation cleanup: remove slide 05 "How It Works Together", renumber slides 05-07, drop merchandising disclaimer.
