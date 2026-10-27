@@ -2,9 +2,9 @@ import walkingShot from "@/assets/shots/walking.png.asset.json";
 import marathonShot from "@/assets/shots/marathon.png.asset.json";
 import hikesShot from "@/assets/shots/hikes.png.asset.json";
 import weddingShot from "@/assets/shots/wedding.png.asset.json";
-import pacsun from "@/assets/customers/pacsun-v2.png.asset.json";
+import pacsun from "@/assets/customers/pacsun-v3.png.asset.json";
 import westMarine from "@/assets/customers/west-marine-v2.png.asset.json";
-import bootBarn from "@/assets/customers/boot-barn.png.asset.json";
+import bootBarn from "@/assets/customers/boot-barn-v2.png.asset.json";
 import { catalog } from "./skechers-products";
 import type { AccountConfig } from "./types";
 
