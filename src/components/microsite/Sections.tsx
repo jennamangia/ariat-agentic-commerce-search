@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { account, type Product } from "@/config/accounts";
 
 import { Button } from "@/components/ui/button";
-import { RotateCcw, Search, Image as ImageIcon, ArrowDown, Sparkles, SlidersHorizontal, Target, X, ZoomIn } from "lucide-react";
+import { RotateCcw, Search, Image as ImageIcon, Sparkles, X, ZoomIn } from "lucide-react";
 import { searchRevenueModel, revenueLimits, modeledScenarios } from "@/lib/revenue-model";
 
 const a = account;
@@ -220,14 +220,14 @@ export function Today() {
 }
 
 function ProductCard({ p }: { p: Product; delay?: number }) {
-  return <article data-product-card className="flex min-w-0 flex-col rounded-lg border bg-card p-3 text-card-foreground shadow-soft">
-    <div className="flex aspect-square items-center justify-center overflow-hidden rounded-md bg-muted">
+  return <article data-product-card className="flex min-w-0 flex-col rounded-2xl border bg-card p-4 text-card-foreground shadow-soft transition-transform duration-300 hover:-translate-y-1">
+    <div className="flex aspect-square items-center justify-center overflow-hidden rounded-xl bg-card">
       {p.image ? <img src={p.image} alt={p.name} loading="lazy" className="h-full w-full object-contain" /> : <div className="p-3 text-center text-xs text-muted-foreground"><ImageIcon className="mx-auto mb-2 size-8" />Authentic product photo pending</div>}
     </div>
     <h3 className="mt-3 text-sm font-semibold leading-snug">{p.name}</h3>
     {p.price && <p className="mt-1 text-sm font-semibold">{p.price}</p>}
     <div className="mt-2 flex flex-wrap gap-1">{p.tags.map(t => <span key={t} className="rounded-sm bg-accent px-2 py-1 text-[11px] text-accent-foreground">{t}</span>)}</div>
-    {p.why && <p className="mt-3 text-xs leading-relaxed text-muted-foreground"><span className="font-semibold text-foreground">Why this matches</span><br />{p.why}</p>}
+    {p.why && <p className="mt-3 text-xs leading-relaxed text-muted-foreground"><span className="font-semibold text-primary">Why this matches:</span> {p.why}</p>}
     {p.source && <a href={p.source} target="_blank" rel="noreferrer" className="mt-auto pt-3 text-xs font-semibold text-primary underline">Product details ↗</a>}
   </article>;
 }
