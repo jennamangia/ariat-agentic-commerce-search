@@ -14,7 +14,23 @@ import emmett from '@/assets/products/emmett.jpg.asset.json';
 import rickter from '@/assets/products/rickter.jpg.asset.json';
 import trego from '@/assets/products/trego.jpg.asset.json';
 import type { Product } from './types';
-const product = (name:string, image:string, path:string, tags:string[], why:string):Product => ({name,image,source:`https://www.skechers.com/${path}`,tags,why});
+const observedPrices: Record<string, string> = {
+  'Skechers Aero Spark': '$135',
+  'BOBS Desert Kiss - Sun Shining': '$44.99',
+  'Arch Fit Beverlee 2.0 - Beach Bliss 2': '$39.99',
+  'BOBS Misty Kiss - Stormy Steps': '$52.99',
+  'Skechers Slip-ins: GO WALK Flex Sandal - Belle': '$49.99',
+  'GO WALK Arch Fit 2.0 Sandal - Exhilarate': '$49.99',
+  'GO WALK Arch Fit 2.0 Sandal - Talia': '$54.99',
+  'Arch Fit Granola - Mellow Skies': '$44.99',
+  'GO WALK Flex Sandal - Sublime': '$65',
+  'Waterproof Relaxed Fit: Rickter - Path Seeker': '$100',
+  'Waterproof Relaxed Fit: Trego - Trail Destination': '$105',
+};
+const product = (name:string, image:string, path:string, tags:string[], why:string):Product => {
+  const price = observedPrices[name];
+  return {name,image,source:`https://www.skechers.com/${path}`,tags,why,...(price ? {price: `${price} · observed price`} : {})};
+};
 type FourProducts = [Product, Product, Product, Product];
 const marathon:FourProducts = [
  product('Skechers Aero Burst',burst.url,'skechers-aero-burst/172210_WLM.html',['HYPER BURST ICE','Arch Fit','Running'],'Highly cushioned running trainer, with documented long-distance positioning and Arch Fit insole.'),
