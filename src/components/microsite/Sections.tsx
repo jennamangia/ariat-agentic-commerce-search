@@ -19,11 +19,19 @@ export function useReveal() {
       { threshold: 0, rootMargin: "0px 0px -10% 0px" },
     );
     const watch = () => document.querySelectorAll(".reveal:not(.in)").forEach((el) => io.observe(el));
+    // Backstop when the browser throttles observers (embedded or background previews):
+    // reveal anything already above the bottom of the viewport.
+    const check = () => document.querySelectorAll(".reveal:not(.in)").forEach((el) => {
+      if (el.getBoundingClientRect().top < window.innerHeight) show(el);
+    });
     watch();
+    check();
     // Sections re-rendered or remounted after mount (hot updates, keyed tab changes) get new nodes.
-    const mo = new MutationObserver(watch);
+    const mo = new MutationObserver(() => { watch(); check(); });
     mo.observe(document.body, { childList: true, subtree: true });
-    return () => { io.disconnect(); mo.disconnect(); };
+    window.addEventListener("scroll", check, { passive: true });
+    window.addEventListener("resize", check);
+    return () => { io.disconnect(); mo.disconnect(); window.removeEventListener("scroll", check); window.removeEventListener("resize", check); };
   }, []);
 }
 
