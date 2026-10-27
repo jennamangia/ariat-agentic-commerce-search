@@ -117,3 +117,7 @@
 .animate-float { animation: float 7s ease-in-out infinite; }
 .animate-blink { animation: blink 1s step-end infinite; }
 .animate-scrolldot { animation: scrolldot 1.6s ease-in infinite; }
+@utility mask-fade {
+  -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, black 55%, transparent 100%);
+  mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, black 55%, transparent 100%);
+}

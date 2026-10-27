@@ -80,7 +80,7 @@ export function Hero() {
           alt="Premium athletic sneaker"
           width={1600}
           height={1008}
-          className="animate-float relative w-full scale-125 mix-blend-screen lg:scale-150"
+          className="mask-fade animate-float relative w-full scale-125 mix-blend-screen lg:scale-150"
         />
       </div>
       <a href="#today" className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-xs text-navy-muted">
@@ -482,7 +482,7 @@ export function Proof() {
 export function Closing() {
   return (
     <section className="bg-close relative flex min-h-screen items-center overflow-hidden text-navy-foreground">
-      <img src={a.heroImage} alt="" aria-hidden width={1600} height={1008} loading="lazy" className="pointer-events-none absolute -bottom-20 left-1/2 w-[900px] max-w-none -translate-x-1/2 opacity-40 mix-blend-screen" />
+      <img src={a.heroImage} alt="" aria-hidden width={1600} height={1008} loading="lazy" className="pointer-events-none absolute -bottom-20 left-1/2 w-[900px] max-w-none -translate-x-1/2 mask-fade opacity-40 mix-blend-screen" />
       <div className="reveal relative mx-auto max-w-5xl px-6 text-center">
         <h2 className="text-5xl font-semibold leading-[1.02] md:text-7xl">
           Let's make every search a <span className="font-serif font-normal italic text-sky">better shopping experience.</span>
