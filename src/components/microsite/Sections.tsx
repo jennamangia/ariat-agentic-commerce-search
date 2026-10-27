@@ -62,8 +62,8 @@ function SearchIcon() {
 
 export function Cloud({ className = "" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 120 70" aria-hidden className={className} fill="currentColor">
-      <path d="M30 68a28 28 0 0 1-3-55.8A30 30 0 0 1 82 12a24 24 0 0 1 35 27A15 15 0 0 1 104 68Z" />
+    <svg viewBox="-4 -4 136 80" aria-hidden className={`overflow-visible ${className}`} fill="currentColor">
+      <path d="M28 70a24 24 0 0 1-2-47.9A30 30 0 0 1 82 16a22 22 0 0 1 30 22A16 16 0 0 1 110 70Z" />
     </svg>
   );
 }
@@ -221,8 +221,8 @@ export function Today() {
 
 function ProductCard({ p }: { p: Product; delay?: number }) {
   return <article data-product-card className="flex min-w-0 flex-col rounded-2xl border bg-card p-4 text-card-foreground shadow-soft transition-transform duration-300 hover:-translate-y-1">
-    <div className="flex aspect-square items-center justify-center overflow-hidden rounded-xl bg-card">
-      {p.image ? <img src={p.image} alt={p.name} loading="lazy" className="h-full w-full object-contain" /> : <div className="p-3 text-center text-xs text-muted-foreground"><ImageIcon className="mx-auto mb-2 size-8" />Authentic product photo pending</div>}
+    <div className="flex aspect-[3/2] items-center justify-center overflow-hidden rounded-xl bg-card">
+      {p.image ? <img src={p.image} alt={p.name} loading="lazy" className="h-full w-full object-cover object-top" /> : <div className="p-3 text-center text-xs text-muted-foreground"><ImageIcon className="mx-auto mb-2 size-8" />Authentic product photo pending</div>}
     </div>
     <h3 className="mt-3 text-sm font-semibold leading-snug">{p.name}</h3>
     {p.price && <p className="mt-1 text-sm font-semibold">{p.price}</p>}
