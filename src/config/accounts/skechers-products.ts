@@ -41,7 +41,7 @@ const hikes:FourProducts = [
  {name:'Relaxed Fit: Trego - Alpine Trail',image:'',source:'https://www.skechers.co.nz/trego-alpine-trail-167004-brn.html',tags:['Waterproof','All-terrain outsole','Hiking'],why:'Documented waterproof hiking ankle boot with Air-Cooled Memory Foam. Regional listing; authentic image pending.'},
 ];
 // Keyword-led selections are conceptual category matches, never claimed as actual site ranking.
-const plain = (p:Product):Product => ({...p,why:undefined});
+const plain = (p:Product):Product => { const { why, ...result } = p; return result; };
 export const catalog = {marathon,wedding,mom,hikes,walking:mom,
  traditional:{
   marathon:[marathon[1],marathon[0],marathon[2],marathon[3]].map(plain),
