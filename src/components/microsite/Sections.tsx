@@ -24,7 +24,7 @@ function Typewriter({ phrases }: { phrases: string[] }) {
   const [n, setN] = useState(0);
   const [del, setDel] = useState(false);
   useEffect(() => {
-    const full = phrases[i];
+    const full = phrases[i] ?? "";
     const t = setTimeout(
       () => {
         if (!del && n < full.length) setN(n + 1);
@@ -41,7 +41,7 @@ function Typewriter({ phrases }: { phrases: string[] }) {
   }, [n, del, i, phrases]);
   return (
     <span>
-      {phrases[i].slice(0, n)}
+      {(phrases[i] ?? "").slice(0, n)}
       <span className="animate-blink ml-0.5 inline-block h-6 w-0.5 translate-y-1 bg-primary" />
     </span>
   );
@@ -146,7 +146,7 @@ function Screenshot({ src, onZoom }: { src: string; onZoom: () => void }) {
 export function Today() {
   const [active, setActive] = useState(0);
   const [zoom, setZoom] = useState<string | null>(null);
-  const q = a.queries[active];
+  const q = a.queries[active]!;
   return (
     <section id="today" className="mx-auto max-w-7xl px-6 py-32">
       <div className="reveal max-w-3xl">
@@ -200,7 +200,7 @@ export function Reimagined() {
   const [active, setActive] = useState(0);
   const [after, setAfter] = useState(true);
   const [zoom, setZoom] = useState<string | null>(null);
-  const q = a.queries[active];
+  const q = a.queries[active]!;
   return (
     <section className="bg-navy py-32 text-navy-foreground">
       <div className="mx-auto max-w-7xl px-6">
@@ -389,7 +389,7 @@ export function Agent() {
   const [step, setStep] = useState(0);
   const [started, setStarted] = useState(false);
   useEffect(() => {
-    const io = new IntersectionObserver(([e]) => e.isIntersecting && setStarted(true), { threshold: 0.4 });
+    const io = new IntersectionObserver((es) => es[0]?.isIntersecting && setStarted(true), { threshold: 0.4 });
     if (ref.current) io.observe(ref.current);
     return () => io.disconnect();
   }, []);

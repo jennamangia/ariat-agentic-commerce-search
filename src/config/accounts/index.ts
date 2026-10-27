@@ -4,7 +4,7 @@ import type { AccountConfig } from "./types";
 // Add new prospects (YETI, VF Corporation, Columbia...) here and switch ACTIVE_ACCOUNT.
 export const accounts: Record<string, AccountConfig> = { skechers };
 export const ACTIVE_ACCOUNT = "skechers";
-export const account = accounts[ACTIVE_ACCOUNT];
+export const account: AccountConfig = accounts[ACTIVE_ACCOUNT]!;
 export * from "./types";
 
 export function annualOpportunity(monthlyVisits: number, rpv: number, improvementPct: number) {
