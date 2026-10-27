@@ -304,44 +304,6 @@ export function Business() {
   </div></section>;
 }
 
-/* 5 — Connected ACS intelligence */
-const intelligence = [
-  { icon: Search, title: "Long-tail understanding", body: "Interprets highly descriptive searches — like “boots for slippery rainy hikes” — even when that exact phrase has little or no query history." },
-  { icon: Eye, title: "Semantic product understanding", body: "Finds relevant products when the shopper's words never appear in the title or description, using catalog text and imagery together." },
-  { icon: Rocket, title: "Cold-start relevance", body: "Reasons about new products and previously unseen queries without depending only on accumulated clicks." },
-  { icon: Target, title: "Commerce-oriented optimization", body: "Uses real and simulated shopping-journey signals to favor discovery aligned with purchase intent and conversion." },
-];
-export function Footwear() {
-  return (
-    <section id="intelligence" className="relative overflow-hidden bg-navy py-28 text-navy-foreground">
-      <Cloud className="pointer-events-none absolute -right-20 top-16 w-96 text-sky/10" />
-      <div className="relative mx-auto max-w-7xl px-6">
-        <div className="reveal max-w-4xl">
-          <Eyebrow dark>05 · How it works together</Eyebrow>
-          <h2 className="text-4xl font-semibold md:text-6xl">Search Intelligence That Doesn't Have to <span className="text-sky">Wait for the Next Click.</span></h2>
-          <p className="mt-6 max-w-2xl text-lg text-navy-muted">Product understanding, a customer-specific model and simulated shopping journeys feed one another — so relevance doesn't depend only on what shoppers clicked yesterday.</p>
-        </div>
-        <div className="reveal mt-12 grid gap-4 md:grid-cols-3">
-          {[{ icon: Layers, t: "Product understanding", d: "Catalog text + product imagery" }, { icon: Sparkles, t: "Customer-specific model", d: "Built around Skechers' catalog and shoppers" }, { icon: Target, t: "Simulated shopping journeys", d: "Added signals beyond historical clickstream" }].map(({ icon: Icon, t, d }) => (
-            <div key={t} className="rounded-2xl border border-sky/20 bg-primary/15 p-5"><Icon className="size-6 text-sky" /><p className="mt-3 font-semibold">{t}</p><p className="mt-1 text-sm text-navy-muted">{d}</p></div>
-          ))}
-        </div>
-        <div className="reveal my-6 flex items-center justify-center gap-3 text-sm font-semibold text-sky"><span className="h-px w-16 bg-sky/40" />Combined, they enable<span className="h-px w-16 bg-sky/40" /></div>
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {intelligence.map(({ icon: Icon, title, body }, i) => (
-            <article key={title} className="reveal flex flex-col rounded-3xl bg-card p-6 text-card-foreground shadow-soft" style={{ transitionDelay: `${i * 80}ms` }}>
-              <span className="flex size-11 items-center justify-center rounded-xl bg-primary text-primary-foreground"><Icon className="size-5" /></span>
-              <h3 className="mt-5 text-lg font-semibold">{title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* 6 — Agent */
 export function Agent() {
   const ref = useRef<HTMLDivElement>(null);
   const [step, setStep] = useState(0);
