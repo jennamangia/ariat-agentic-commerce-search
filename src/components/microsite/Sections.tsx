@@ -122,11 +122,14 @@ export function Hero() {
               <Cloud className="pointer-events-none absolute inset-x-6 bottom-2 text-sky/15" />
               <Mascot name="Astro" className="animate-float relative" />
             </div>
-            <div className="mt-5 space-y-2">
-              {["Understands intent", "Reads product imagery", "Learns from simulated journeys"].map((t) => (
-                <p key={t} className="flex items-center gap-2 rounded-xl bg-primary/25 px-3 py-2 text-sm font-semibold"><Sparkles className="size-4 text-sky" />{t}</p>
-              ))}
+            <div className="relative mt-6 overflow-hidden rounded-2xl border border-sky/25 bg-primary/10 px-5 py-6 text-center shadow-glow">
+              <span aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-0.5 bg-brand" />
+              <p className="text-xl font-bold leading-[1.18] tracking-tight md:text-2xl">
+                <span className="block text-navy-foreground">Beyond Keywords.</span>
+                <span className="mt-1 block text-sky">Built for Conversion.</span>
+              </p>
             </div>
+
           </div>
         </div>
       </div>
