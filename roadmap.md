@@ -4,4 +4,5 @@
 - [x] Add visual understanding, customer examples, technology and merchandising sections.
 - [x] Replace metrics and enhance the single revenue calculator with approved model and tests.
 - [x] Polish Salesforce styling and verify desktop/mobile interactions.
-- [ ] Add official Salesforce mascots — awaiting approval for commercial-demo use or approved supplied assets.
+- [x] Add supplied Astro (opening, closing) and Einstein (differentiators) artwork.
+- [x] Final refinements: replacement products, customer screenshots, differentiators, intelligence, agent comparison, merchandising rules.

@@ -26,5 +26,7 @@ export type AccountConfig = {
     reply: string;
     answer: string;
     products: Product[];
+    comparison: { bestUse: string; comfort: string; style: string; difference: string }[];
+    closing: string;
   };
 };

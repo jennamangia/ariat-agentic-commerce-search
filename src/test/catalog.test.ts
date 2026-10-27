@@ -23,4 +23,9 @@ describe("Skechers ACS demo scenarios", () => {
   it("defaults to $500M revenue, 12% search share and 12% RPV uplift", () => {
     expect(skechers.calculator).toEqual({ annualRevenue: 500_000_000, searchSharePct: 12, upliftPct: 12 });
   });
+  it("uses the owner-specified wedding, hiking and walking products", () => {
+    expect(catalog.wedding.map(p => p.name)).toEqual(["BOBS Misty Kiss - Stormy Steps", "BOBS Desert Kiss Low - Boho Glide", "BOBS Desert Kiss - Sun Shining", "BOBS Desert Kiss Low"]);
+    expect(catalog.hikes.map(p => p.price)).toEqual(["$105.00", "$64.99", "$100.00", "$120.00"]);
+    expect(catalog.walking[2]?.name).toBe("GO WALK Arch Fit 2.0 Sandal - Talia");
+  });
 });
