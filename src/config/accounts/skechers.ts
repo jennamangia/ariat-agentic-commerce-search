@@ -9,6 +9,9 @@ import dressSandal from "@/assets/p-dress-sandal.jpg";
 import walkSandal from "@/assets/p-walk-sandal.jpg";
 import hikeBoot from "@/assets/p-hike-boot.jpg";
 import loafer from "@/assets/p-loafer.jpg";
+import pacsun from "@/assets/customers/pacsun.png.asset.json";
+import westMarine from "@/assets/customers/west-marine.png.asset.json";
+import bootBarn from "@/assets/customers/boot-barn.png.asset.json";
 import type { AccountConfig } from "./types";
 
 /**
@@ -102,7 +105,21 @@ export const skechers: AccountConfig = {
       })),
     },
   ],
-  calculator: { monthlyVisits: 1_000_000, rpv: 2, improvementPct: 10 },
+  calculator: { annualRevenue: 500_000_000, searchSharePct: 25, upliftPct: 12 },
+  outcomes: [
+    { value: "+10%", label: "Site search conversion rate uplift" },
+    { value: "+13%", label: "Average order value uplift" },
+    { value: "−96%", label: "Null search results" },
+    { value: "−85%", label: "Merchandising rule reduction" },
+    { value: "+33%", label: "Clicks per user" },
+    { value: "+12%", label: "Revenue per user" },
+  ],
+  visualProduct: { image: "", name: "Western boot photo — authentic asset pending" },
+  customerExamples: [
+    { name: "West Marine", query: "Cleaning supplies for the head", screenshot: westMarine.url, explanation: "In boating terminology, ‘head’ means the bathroom aboard a vessel. The results show marine sanitation and cleaning products.", takeaway: "Understands industry-specific language." },
+    { name: "Boot Barn", query: "Outfits for Coachella", screenshot: bootBarn.url, explanation: "Shoppers describe occasions, not just categories. Event-based language connects with relevant apparel and styles.", takeaway: "Understands occasions and style." },
+    { name: "PacSun", query: "Women's comfortable but not too baggy jeans", screenshot: pacsun.url, explanation: "Conversational fit preferences express a balance of comfort and shape rather than a single exact keyword.", takeaway: "Understands nuanced shopper preferences." },
+  ],
   challenges: [
     { title: "Complex shopper intent", body: "Shoppers describe activities, occasions and people — not SKUs.", acs: "Interpret natural-language queries beyond literal keywords." },
     { title: "Product attribute understanding", body: "Open toe, waterproof, low heel — details decide the purchase.", acs: "Use catalog attributes as relevance signals." },
