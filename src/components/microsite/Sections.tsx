@@ -3,8 +3,8 @@ import { account, type Product } from "@/config/accounts";
 
 import { Button } from "@/components/ui/button";
 import { RotateCcw, Search, Image as ImageIcon, Sparkles, X, ZoomIn } from "lucide-react";
-import astro from "@/assets/characters/astro-trim.png.asset.json";
-import einstein from "@/assets/characters/einstein.png.asset.json";
+import astro from "@/assets/characters/astro-trim.png";
+import einstein from "@/assets/characters/einstein.png";
 import { searchRevenueModel, revenueLimits, modeledScenarios } from "@/lib/revenue-model";
 
 const a = account;
@@ -86,7 +86,7 @@ export function Cloud({ className = "" }: { className?: string }) {
   );
 }
 
-const characters = { Astro: astro.url, Einstein: einstein.url };
+const characters = { Astro: astro, Einstein: einstein };
 
 /** Approved Salesforce character artwork, shown at its natural proportions on a transparent background. */
 export function Mascot({ name, className = "" }: { name: keyof typeof characters; className?: string }) {

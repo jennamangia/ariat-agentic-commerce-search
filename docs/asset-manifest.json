@@ -1,0 +1,443 @@
+[
+  {
+    "path": "src/assets/characters/astro-trim.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/02112fa1-4259-4a7b-bd7f-d5a1f56657f6/astro-trim.png",
+    "assetId": "02112fa1-4259-4a7b-bd7f-d5a1f56657f6",
+    "size": 453872,
+    "sha256": "19639e78e3870c154154b2b922979e7cc3ed83e9ff7df1f341a0e5ae051ffa1d"
+  },
+  {
+    "path": "src/assets/characters/astro.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/144ede04-d323-41f8-a27a-7f753fb1ab25/astro.png",
+    "assetId": "144ede04-d323-41f8-a27a-7f753fb1ab25",
+    "size": 598832,
+    "sha256": "66f87adda7f340fd9e4a2ee97a9d62418107c62cb385849059f31e7509eedc5e"
+  },
+  {
+    "path": "src/assets/characters/einstein.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/9df1b85d-a525-455a-b2f6-81ca5fd3cfb7/einstein.png",
+    "assetId": "9df1b85d-a525-455a-b2f6-81ca5fd3cfb7",
+    "size": 259104,
+    "sha256": "4b10998f35f05e301c729fb3f2f30c720ba31e181a35f12b6324072b807f6701"
+  },
+  {
+    "path": "src/assets/customers/boot-barn-v2.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/5a3b35a1-f8b3-4814-b391-a9749613f243/boot-barn-coachella.png",
+    "assetId": "5a3b35a1-f8b3-4814-b391-a9749613f243",
+    "size": 313280,
+    "sha256": "46070eb7c3416c3cc3182cce51f5de2ca3f9336ea58809bb33cbb54eef04e69d"
+  },
+  {
+    "path": "src/assets/customers/boot-barn.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/62c363b3-0e36-4744-9116-521b01836de2/boot-barn-search.png",
+    "assetId": "62c363b3-0e36-4744-9116-521b01836de2",
+    "size": 320454,
+    "sha256": "06347d1b98c7b5afdb7440f86f14b9de89ca962ba581c4fdb83ee117fd204fea"
+  },
+  {
+    "path": "src/assets/customers/pacsun-v2.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/5b59c2a1-8c35-4bbb-b6a3-3d9dd716ca4a/pacsun-jeans.png",
+    "assetId": "5b59c2a1-8c35-4bbb-b6a3-3d9dd716ca4a",
+    "size": 745239,
+    "sha256": "4020a7187f79576b903e966927a5b4edc045f2147bbc298d1f48e5d55e9f61b4"
+  },
+  {
+    "path": "src/assets/customers/pacsun-v3.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/bcad62cd-3ec1-4076-a887-c53687220031/pacsun-baggy-jeans.png",
+    "assetId": "bcad62cd-3ec1-4076-a887-c53687220031",
+    "size": 868849,
+    "sha256": "4e25671fc34df70f533e2160d171f10b70fc9323dadf287b067d5ede2232a082"
+  },
+  {
+    "path": "src/assets/customers/pacsun.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/fcc5bb17-3615-4a55-84ef-4034348d8a8f/pacsun-search.png",
+    "assetId": "fcc5bb17-3615-4a55-84ef-4034348d8a8f",
+    "size": 553728,
+    "sha256": "787b4762ccfad06b993f2c26a1c222b10b766100c2d83ef2ab801ef4a265f19e"
+  },
+  {
+    "path": "src/assets/customers/west-marine-v2.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/2aec669c-f890-413f-850a-4b40322bd98c/west-marine-head.png",
+    "assetId": "2aec669c-f890-413f-850a-4b40322bd98c",
+    "size": 338743,
+    "sha256": "1db216ed31fde6a90f329ec97f314517ad6205d959ccdb58c1faf2b93b008ed4"
+  },
+  {
+    "path": "src/assets/customers/west-marine.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/3e887906-df4c-4b9e-b9c7-a9a7d301f52c/west-marine-search.png",
+    "assetId": "3e887906-df4c-4b9e-b9c7-a9a7d301f52c",
+    "size": 220235,
+    "sha256": "462a8a43026ae3d4a881339e75a92ec8426e39e762944dcea4f7f016f69b5210"
+  },
+  {
+    "path": "src/assets/products/belle.jpg",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/0f735aae-f7ca-41fc-896f-ca494425a38f/belle.jpg",
+    "assetId": "0f735aae-f7ca-41fc-896f-ca494425a38f",
+    "size": 16479,
+    "sha256": "e32e215d9d77106d4491da5a1d24cf8d49c2feec2c3c3e79bd4bea62357f0f06"
+  },
+  {
+    "path": "src/assets/products/beverlee.jpg",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/a6838333-2116-43c1-97ba-14612945c097/beverlee.jpg",
+    "assetId": "a6838333-2116-43c1-97ba-14612945c097",
+    "size": 19992,
+    "sha256": "492443c97beacb8fac689fcadc39310a191a11fded24a42f2dd1595378f205a6"
+  },
+  {
+    "path": "src/assets/products/burst.jpg",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/7f541acd-c9a0-4039-b383-4247f38e5e9d/burst.jpg",
+    "assetId": "7f541acd-c9a0-4039-b383-4247f38e5e9d",
+    "size": 11641,
+    "sha256": "4bfc7ca914e6f2897e09e258aab058e9e0fc8bbdaff93c865abfbb521d7eff31"
+  },
+  {
+    "path": "src/assets/products/desert.jpg",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/5269ec4c-7bb1-473c-bd96-6081d410d1ab/desert.jpg",
+    "assetId": "5269ec4c-7bb1-473c-bd96-6081d410d1ab",
+    "size": 14143,
+    "sha256": "0878d42be1ea68914a411dcaacb7649e2b675f81734a010405f874dda6eb282b"
+  },
+  {
+    "path": "src/assets/products/emmett.jpg",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/52dc02d5-ffa3-493d-b17f-84dbf75d94c4/emmett.jpg",
+    "assetId": "52dc02d5-ffa3-493d-b17f-84dbf75d94c4",
+    "size": 18882,
+    "sha256": "0d79716fd6c33bc40ddf96df657515cfbc11b74ded25400cbccbe7fd58c520c2"
+  },
+  {
+    "path": "src/assets/products/exhilarate.jpg",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/460475ba-03ee-41c2-9119-7381e8aee5c8/exhilarate.jpg",
+    "assetId": "460475ba-03ee-41c2-9119-7381e8aee5c8",
+    "size": 10348,
+    "sha256": "b56fdf8a50c513b33838e1f8c50451880bceb6b21c6d17cf7f033f233fd39906"
+  },
+  {
+    "path": "src/assets/products/granola.jpg",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/b00f29f4-a46a-413e-b071-f288b6cdb26a/granola.jpg",
+    "assetId": "b00f29f4-a46a-413e-b071-f288b6cdb26a",
+    "size": 14129,
+    "sha256": "495809b27aff4e7d54e67c79b688e66acbc30f6ce60e049e2ac9883379f9d53f"
+  },
+  {
+    "path": "src/assets/products/misty.jpg",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/e4d82cee-2e1c-4a46-965a-36a96c4561c2/misty.jpg",
+    "assetId": "e4d82cee-2e1c-4a46-965a-36a96c4561c2",
+    "size": 18327,
+    "sha256": "4d89e501b509c556b28799493ed446aceb4d92269298a2cf3d0c6d9cfe2d901e"
+  },
+  {
+    "path": "src/assets/products/razor.jpg",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/b54b1610-b45c-4071-81c1-04570236babf/razor.jpg",
+    "assetId": "b54b1610-b45c-4071-81c1-04570236babf",
+    "size": 20849,
+    "sha256": "0a39240c0311ba638a58ebcbcc590da223666911dfff3dd5bd913e69cabfdba4"
+  },
+  {
+    "path": "src/assets/products/rickter.jpg",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/926c5598-e4a1-469c-9632-824f8d7a3a7e/rickter.jpg",
+    "assetId": "926c5598-e4a1-469c-9632-824f8d7a3a7e",
+    "size": 17124,
+    "sha256": "0a09b759f181f2a74940af5d4ca82cf08083518e0a7cd27047fc71fe6afbe90e"
+  },
+  {
+    "path": "src/assets/products/spark.jpg",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/dfe9990a-4864-4e2c-b7fd-bc16274635a2/spark.jpg",
+    "assetId": "dfe9990a-4864-4e2c-b7fd-bc16274635a2",
+    "size": 11935,
+    "sha256": "013b8275ce00ba1a36406ad4ec9e6c042b330e868b1e92081191c1b359c0c795"
+  },
+  {
+    "path": "src/assets/products/sublime.jpg",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/e082a4ee-bfe3-43cd-8bf6-349f56928850/sublime.jpg",
+    "assetId": "e082a4ee-bfe3-43cd-8bf6-349f56928850",
+    "size": 10825,
+    "sha256": "8592f625b3460518a86463b6315a7685a0013db5c37b816da726dd080107fe68"
+  },
+  {
+    "path": "src/assets/products/talia.jpg",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/e09893d2-e40d-4b6b-852d-5067e8dc0775/talia.jpg",
+    "assetId": "e09893d2-e40d-4b6b-852d-5067e8dc0775",
+    "size": 11010,
+    "sha256": "551ccc3b5642f9f219b35857042bba90de41a4cc524887506cd510317bd13b32"
+  },
+  {
+    "path": "src/assets/products/tempo.jpg",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/9c5b9d4c-bff8-41af-be97-630f62a59a63/tempo.jpg",
+    "assetId": "9c5b9d4c-bff8-41af-be97-630f62a59a63",
+    "size": 16063,
+    "sha256": "e93b5e6d38eaea29c081f6c40b2131728a32ac5843da9aaae9ba5cc5a64166a8"
+  },
+  {
+    "path": "src/assets/products/trego.jpg",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/7808dacb-7fa9-4d16-95e6-19843f5adab2/trego.jpg",
+    "assetId": "7808dacb-7fa9-4d16-95e6-19843f5adab2",
+    "size": 18995,
+    "sha256": "587e334f6953dcf4586b66cf93d8ff56429b9409314e6c52d050f86459cdb6f4"
+  },
+  {
+    "path": "src/assets/products/western.jpg",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/5909ece7-f6f9-4785-8f12-39da4cf8292b/western-boot.jpg",
+    "assetId": "5909ece7-f6f9-4785-8f12-39da4cf8292b",
+    "size": 75437,
+    "sha256": "0c213a506766bad29d901fb9196eeed78033fa2266ebd8f8ae1b94544621e514"
+  },
+  {
+    "path": "src/assets/products-v2/h-branson.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/64c5af01-f9a8-49b9-ac44-7627f286c1f7/h-branson.png",
+    "assetId": "64c5af01-f9a8-49b9-ac44-7627f286c1f7",
+    "size": 50006,
+    "sha256": "a9732e1630da7f53f45dd2416b50b905aa7e3afe091919f89688a695598f8ed5"
+  },
+  {
+    "path": "src/assets/products-v2/h-emmett.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/5578965a-1619-4496-8388-f584b8ff24ca/h-emmett.png",
+    "assetId": "5578965a-1619-4496-8388-f584b8ff24ca",
+    "size": 49048,
+    "sha256": "284c685382b0ff58d37850f9425a93b61646d25cd4682a0e795443b97a29440c"
+  },
+  {
+    "path": "src/assets/products-v2/h-path.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/3ac9811b-3247-49e8-b96d-570d7aaf8396/h-path.png",
+    "assetId": "3ac9811b-3247-49e8-b96d-570d7aaf8396",
+    "size": 45139,
+    "sha256": "2f1ce708549a8e3b6a6931b51ee4c3640ee0ac79792bd7b4aa0744a569ea319c"
+  },
+  {
+    "path": "src/assets/products-v2/h-trego.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/546bcb39-18e1-4cb7-8445-bc345ae44a14/h-trego.png",
+    "assetId": "546bcb39-18e1-4cb7-8445-bc345ae44a14",
+    "size": 47894,
+    "sha256": "f5a785383e80c154b6a6116f931a6948bb3f1e9124b1d54a8fb3d3b1397f904e"
+  },
+  {
+    "path": "src/assets/products-v2/o-chandler.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/3a43b074-c36f-473d-8b0f-f32ed115c821/o-chandler.png",
+    "assetId": "3a43b074-c36f-473d-8b0f-f32ed115c821",
+    "size": 11328,
+    "sha256": "6813c5793c0471bbfea77472d901263b9e2eabc6787e82e34ee4576ccff221b5"
+  },
+  {
+    "path": "src/assets/products-v2/o-exhil.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/f80103e1-cf1f-4436-aff8-3f1e1011b709/o-exhil.png",
+    "assetId": "f80103e1-cf1f-4436-aff8-3f1e1011b709",
+    "size": 21053,
+    "sha256": "112e1e9104537bd31ad0ef66fb6c5b70693be99b6d58d2c85a3999058ea526c0"
+  },
+  {
+    "path": "src/assets/products-v2/o-sage.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/b73ef56b-9493-4466-919b-ed46b0adaeef/o-sage.png",
+    "assetId": "b73ef56b-9493-4466-919b-ed46b0adaeef",
+    "size": 28417,
+    "sha256": "81e2548306ae55abe0e5df2b122a520fdabff478e8c45eef5c0ad1cebe0f5013"
+  },
+  {
+    "path": "src/assets/products-v2/o-talia.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/0ad64f6d-dfa5-48a9-b9d8-2b9b89c2a1df/o-talia.png",
+    "assetId": "0ad64f6d-dfa5-48a9-b9d8-2b9b89c2a1df",
+    "size": 18983,
+    "sha256": "8360e540816a8bb56ec5f595078746262f6f0a72ba7ff0a513f9fddcf3e0b093"
+  },
+  {
+    "path": "src/assets/products-v2/w-boho.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/ab2c4dc1-1cf0-414c-b9f4-863e7c951fc5/w-boho.png",
+    "assetId": "ab2c4dc1-1cf0-414c-b9f4-863e7c951fc5",
+    "size": 19708,
+    "sha256": "ccdbdf3c322f7904f721c0d39058fbd5cac8101c408edb63326ec359cf2ca2df"
+  },
+  {
+    "path": "src/assets/products-v2/w-desert.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/1481b8db-9a49-494c-a03a-9a317b9d159e/w-desert.png",
+    "assetId": "1481b8db-9a49-494c-a03a-9a317b9d159e",
+    "size": 22294,
+    "sha256": "7886a85cb4b53366c059e1e6150566d90077c7ebdbf2d28410be731184e1de9f"
+  },
+  {
+    "path": "src/assets/products-v2/w-misty.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/96a2eac6-f6bc-432b-af28-9542ed386cd7/w-misty.png",
+    "assetId": "96a2eac6-f6bc-432b-af28-9542ed386cd7",
+    "size": 30639,
+    "sha256": "9b6f5309ab70987a23afc4deef2a656422f76e87c36d9f610c3690d7f2f7fba3"
+  },
+  {
+    "path": "src/assets/products-v2/w-sun.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/d04c6859-2508-4bb4-8943-bc657621bbce/w-sun.png",
+    "assetId": "d04c6859-2508-4bb4-8943-bc657621bbce",
+    "size": 23771,
+    "sha256": "50ff27abbb5d93b83e12540ed16f6bec8be667e92424d2147dbf0a9d376a04c2"
+  },
+  {
+    "path": "src/assets/shots/hikes.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/ee35d7ad-542e-4a4f-b633-3dcaeceef4f1/skechers-hikes.png",
+    "assetId": "ee35d7ad-542e-4a4f-b633-3dcaeceef4f1",
+    "size": 473498,
+    "sha256": "fcf4de8e9d9efb2b0d4a7e5923ae19a0b5954cf5bf07956839f2b0251378f6a1"
+  },
+  {
+    "path": "src/assets/shots/marathon.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/e1ab25a2-3fde-44e3-a503-485defcbfe59/skechers-marathon.png",
+    "assetId": "e1ab25a2-3fde-44e3-a503-485defcbfe59",
+    "size": 412309,
+    "sha256": "870f8e09c98ae21ec9a4d9d7d0d3b9477b14379438b44116e7c4a5c4d9f52e5d"
+  },
+  {
+    "path": "src/assets/shots/mom.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/5eb7097e-80ef-46df-9227-7ba54f3460f2/skechers-mom.png",
+    "assetId": "5eb7097e-80ef-46df-9227-7ba54f3460f2",
+    "size": 438877,
+    "sha256": "29278c1bad6a8f6120e6a849b02bfd42173cca7290ffc00c3456831ca9df130f"
+  },
+  {
+    "path": "src/assets/shots/walking.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/bd5155ad-2c28-47bf-adad-a72e9209695f/skechers-walking.png",
+    "assetId": "bd5155ad-2c28-47bf-adad-a72e9209695f",
+    "size": 442404,
+    "sha256": "599bae77752894111fc2a490c3bbd99177a23f4449b5d32669634f3ba8a1225d"
+  },
+  {
+    "path": "src/assets/shots/wedding.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/62bd8d1c-8400-43f2-92e8-f3116ab738d5/skechers-wedding.png",
+    "assetId": "62bd8d1c-8400-43f2-92e8-f3116ab738d5",
+    "size": 350664,
+    "sha256": "493c711cf86e98f0fbb08f483d5df3910e1bffca7a92f0b0d471d3162494041b"
+  },
+  {
+    "path": "src/assets/skechers/hiking-1.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/8aae030d-746d-4345-bc19-46f050e98d62/hiking-1.png",
+    "assetId": "8aae030d-746d-4345-bc19-46f050e98d62",
+    "size": 41799,
+    "sha256": "9fe45e6e35033e497210bcc553443e4871dc6c5246004c6898857c2be459b84b"
+  },
+  {
+    "path": "src/assets/skechers/hiking-2.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/80c366d8-5f5f-4a4c-a29a-16b0992147e9/hiking-2.png",
+    "assetId": "80c366d8-5f5f-4a4c-a29a-16b0992147e9",
+    "size": 46367,
+    "sha256": "4fbc71a99b1831bc238eeb207c61ba6190b6135a64121b923da6e4949d4adbfa"
+  },
+  {
+    "path": "src/assets/skechers/hiking-3.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/473a28fb-930c-497e-a83a-1cd4637f571c/hiking-3.png",
+    "assetId": "473a28fb-930c-497e-a83a-1cd4637f571c",
+    "size": 41341,
+    "sha256": "46e474c97a406b7b45adb2b77699583bbb57bf3355beee940cb7424325194794"
+  },
+  {
+    "path": "src/assets/skechers/hiking-4.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/f7ee226c-810c-4075-97ba-753edc4a016e/hiking-4.png",
+    "assetId": "f7ee226c-810c-4075-97ba-753edc4a016e",
+    "size": 42106,
+    "sha256": "15543ee68d9798a662eecc49321557aa7f38af276b23ecff2eb206c9d9ec9b0a"
+  },
+  {
+    "path": "src/assets/skechers/marathon-1.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/d3635e5d-335a-47c3-af0f-7387e3045214/marathon-1.png",
+    "assetId": "d3635e5d-335a-47c3-af0f-7387e3045214",
+    "size": 47822,
+    "sha256": "a7513628f312b9c6518daca759ea86829585d3452c9409ea5c492281c25b7748"
+  },
+  {
+    "path": "src/assets/skechers/marathon-2.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/ef4f4cf7-c106-4bcb-9b7e-39517fd7b394/marathon-2.png",
+    "assetId": "ef4f4cf7-c106-4bcb-9b7e-39517fd7b394",
+    "size": 46083,
+    "sha256": "ec8e922b0a8b52cbc2c9dea60567e5451f15d29d5bb6d57ea7b3ba4def14280d"
+  },
+  {
+    "path": "src/assets/skechers/marathon-3.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/e7a4e5e9-5ea5-4f27-b57a-b5b4fa8e51c1/marathon-3.png",
+    "assetId": "e7a4e5e9-5ea5-4f27-b57a-b5b4fa8e51c1",
+    "size": 39031,
+    "sha256": "861486771bf6250f1305c3dd0536500b4be76bc562667bd1cfeec6be81de8b7a"
+  },
+  {
+    "path": "src/assets/skechers/marathon-4.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/35bf70e1-b8e7-437e-aeeb-35c8860dbb0a/marathon-4.png",
+    "assetId": "35bf70e1-b8e7-437e-aeeb-35c8860dbb0a",
+    "size": 43039,
+    "sha256": "62d1831ff4abef425f6b03f38fa4d9d1c4e3b8d339e8c89c19665ef55f33b1ce"
+  },
+  {
+    "path": "src/assets/skechers/marathon-shoe-1.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/b74f87b0-6ec1-406a-8e9f-2998c057eba6/marathon-shoe-1.png",
+    "assetId": "b74f87b0-6ec1-406a-8e9f-2998c057eba6",
+    "size": 29376,
+    "sha256": "f224c59287c8d6e04d509edd0619529367b8384a04bae7dcfe1de7159fda66df"
+  },
+  {
+    "path": "src/assets/skechers/marathon-shoe-2.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/a77b7888-0186-4db4-800e-06aa46bd22b3/marathon-shoe-2.png",
+    "assetId": "a77b7888-0186-4db4-800e-06aa46bd22b3",
+    "size": 29068,
+    "sha256": "4b054e3c24bfb6c5a60a31a6386aac0fd263012c7b46ed077d3d12660e03ea01"
+  },
+  {
+    "path": "src/assets/skechers/marathon-shoe-3.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/22f03c6f-a20d-42ba-a128-19d1d54ca012/marathon-shoe-3.png",
+    "assetId": "22f03c6f-a20d-42ba-a128-19d1d54ca012",
+    "size": 23744,
+    "sha256": "60ccf2b3e9574d38b92d02ae24ab91e08627ea01f09b94ff2e3575576f33f208"
+  },
+  {
+    "path": "src/assets/skechers/marathon-shoe-4.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/a65f872f-1736-4202-88a1-c351331a6e09/marathon-shoe-4.png",
+    "assetId": "a65f872f-1736-4202-88a1-c351331a6e09",
+    "size": 25248,
+    "sha256": "3f06ed1e07b3f76a485329cb8f873adfc0f5ad7e5658f82a46d75f1facf3450d"
+  },
+  {
+    "path": "src/assets/skechers/open-toe-1.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/d533f0bd-f5e8-47b1-9bba-67d0334089f8/open-toe-1.png",
+    "assetId": "d533f0bd-f5e8-47b1-9bba-67d0334089f8",
+    "size": 36082,
+    "sha256": "9fc1994a4524894e72031ddb61767ee17838a80c7ca742fa08b9ea02938f4335"
+  },
+  {
+    "path": "src/assets/skechers/open-toe-2.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/01c1e5c0-fcfe-482a-8662-660776e6b66b/open-toe-2.png",
+    "assetId": "01c1e5c0-fcfe-482a-8662-660776e6b66b",
+    "size": 42317,
+    "sha256": "c5c42f631f78c206a1b38b6515ec9525c381fbdc179b59ce8eca198b788984f7"
+  },
+  {
+    "path": "src/assets/skechers/open-toe-3.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/89ba6038-1623-4936-9963-b85a8d732570/open-toe-3.png",
+    "assetId": "89ba6038-1623-4936-9963-b85a8d732570",
+    "size": 34097,
+    "sha256": "71d3c6e6a8d3bf1b77278dd6e016369b7ce0aed9620791474c6c7f43bc0114da"
+  },
+  {
+    "path": "src/assets/skechers/open-toe-4.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/9dcc27eb-f197-47b2-97d6-523ee64b7039/open-toe-4.png",
+    "assetId": "9dcc27eb-f197-47b2-97d6-523ee64b7039",
+    "size": 20098,
+    "sha256": "8e910d5951d605a9bcfc2424c56150357cfd8fb76e109793bd2bd45a5604111b"
+  },
+  {
+    "path": "src/assets/skechers/wedding-1.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/047527b9-7feb-42e1-b4a9-1ab659f0aecb/wedding-1.png",
+    "assetId": "047527b9-7feb-42e1-b4a9-1ab659f0aecb",
+    "size": 35944,
+    "sha256": "ffd1881bd8c95b05df1ba9fa7a1f15e774b6262fd457f2bc2731e8e8d151d73f"
+  },
+  {
+    "path": "src/assets/skechers/wedding-2.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/e7db2b87-1c58-4fbc-9d8c-aadea48ad5e8/wedding-2.png",
+    "assetId": "e7db2b87-1c58-4fbc-9d8c-aadea48ad5e8",
+    "size": 34639,
+    "sha256": "fd6e8c7f84fea83665dcaba07ac03813f7fcebdb6f311bd7df1639fddee9a097"
+  },
+  {
+    "path": "src/assets/skechers/wedding-3.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/7e050eec-6846-4de1-bd0e-80ddae3aed62/wedding-3.png",
+    "assetId": "7e050eec-6846-4de1-bd0e-80ddae3aed62",
+    "size": 45112,
+    "sha256": "5c63b36ec027dfaa58a511718416d79991f415512b1949aaeae684f0e14e0331"
+  },
+  {
+    "path": "src/assets/skechers/wedding-4.png",
+    "source": "https://pixel-perfect-page-240.lovable.app/__l5e/assets-v1/ac5c477e-78b9-440c-bdd2-38c32f5592f6/wedding-4.png",
+    "assetId": "ac5c477e-78b9-440c-bdd2-38c32f5592f6",
+    "size": 39105,
+    "sha256": "23ba112d10a8926a4f1d893bced56ba4a6a1893334002036968b1b0ad6c2b31a"
+  }
+]

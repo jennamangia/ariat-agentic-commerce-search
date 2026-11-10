@@ -1,10 +1,10 @@
-import walkingShot from "@/assets/shots/walking.png.asset.json";
-import marathonShot from "@/assets/shots/marathon.png.asset.json";
-import hikesShot from "@/assets/shots/hikes.png.asset.json";
-import weddingShot from "@/assets/shots/wedding.png.asset.json";
-import pacsun from "@/assets/customers/pacsun-v3.png.asset.json";
-import westMarine from "@/assets/customers/west-marine-v2.png.asset.json";
-import bootBarn from "@/assets/customers/boot-barn-v2.png.asset.json";
+import walkingShot from "@/assets/shots/walking.png";
+import marathonShot from "@/assets/shots/marathon.png";
+import hikesShot from "@/assets/shots/hikes.png";
+import weddingShot from "@/assets/shots/wedding.png";
+import pacsun from "@/assets/customers/pacsun-v3.png";
+import westMarine from "@/assets/customers/west-marine-v2.png";
+import bootBarn from "@/assets/customers/boot-barn-v2.png";
 import { catalog } from "./skechers-products";
 import type { AccountConfig } from "./types";
 
@@ -21,7 +21,7 @@ export const skechers: AccountConfig = {
     {
       id: "marathon",
       query: "Best marathon shoes for flat feet",
-      screenshot: marathonShot.url,
+      screenshot: marathonShot,
       observation: "Casual footwear appears prominently despite the shopper asking for specialized running shoes.",
       intent: ["Activity: long-distance running", "Need: arch / flat-feet support", "Category: performance running"],
       annotation: "Prioritizes running construction, cushioning and arch support.",
@@ -31,7 +31,7 @@ export const skechers: AccountConfig = {
     {
       id: "wedding",
       query: "Low heel sandals for a casual wedding",
-      screenshot: weddingShot.url,
+      screenshot: weddingShot,
       observation: "Athletic walking sandals dominate results despite the shopper expressing a dressier occasion.",
       intent: ["Occasion: wedding (dressy-casual)", "Style: low heel", "Category: sandals"],
       annotation: "Understands occasion and heel preference, not just keywords.",
@@ -41,7 +41,7 @@ export const skechers: AccountConfig = {
     {
       id: "hikes",
       query: "Boots for slippery rainy hikes",
-      screenshot: hikesShot.url,
+      screenshot: hikesShot,
       observation: "Boots appear, but waterproofing and suitable hiking traction are not consistently evident.",
       intent: ["Condition: wet, slippery", "Need: waterproof + traction", "Activity: hiking"],
       annotation: "Connects weather and terrain to waterproof, traction-oriented hikers.",
@@ -51,7 +51,7 @@ export const skechers: AccountConfig = {
     {
       id: "walking",
       query: "Open toe comfortable walking shoes",
-      screenshot: walkingShot.url,
+      screenshot: walkingShot,
       observation: "Results appear to broaden toward general walking shoes, even though the shopper specifically requested open-toe footwear designed for comfort.",
       intent: ["Open-toe construction", "Comfortable for walking", "Walking-oriented footwear"],
       annotation: "Honors the open-toe requirement while keeping walking comfort first.",
@@ -69,9 +69,9 @@ export const skechers: AccountConfig = {
     { value: "+12%", label: "Revenue per user" },
   ],
   customerExamples: [
-    { name: "West Marine", query: "Cleaning supplies for the head", screenshot: westMarine.url, explanation: "In boating terminology, ‘head’ means the bathroom aboard a vessel. The results show marine head cleaners and holding-tank treatments rather than generic cleaning products.", takeaway: "Understands marine terminology." },
-    { name: "Boot Barn", query: "Outfits for Coachella", screenshot: bootBarn.url, explanation: "Shoppers describe occasions, not just categories. Event-based language connects with relevant apparel and styles.", takeaway: "Understands occasions and style." },
-    { name: "PacSun", query: "Women's comfortable but not too baggy jeans", screenshot: pacsun.url, explanation: "The shopper describes a balance of comfort and shape rather than a single keyword. The results show relaxed and straight-leg women's denim.", takeaway: "Understands descriptive fit preferences." },
+    { name: "West Marine", query: "Cleaning supplies for the head", screenshot: westMarine, explanation: "In boating terminology, ‘head’ means the bathroom aboard a vessel. The results show marine head cleaners and holding-tank treatments rather than generic cleaning products.", takeaway: "Understands marine terminology." },
+    { name: "Boot Barn", query: "Outfits for Coachella", screenshot: bootBarn, explanation: "Shoppers describe occasions, not just categories. Event-based language connects with relevant apparel and styles.", takeaway: "Understands occasions and style." },
+    { name: "PacSun", query: "Women's comfortable but not too baggy jeans", screenshot: pacsun, explanation: "The shopper describes a balance of comfort and shape rather than a single keyword. The results show relaxed and straight-leg women's denim.", takeaway: "Understands descriptive fit preferences." },
   ],
   challenges: [
     { title: "Complex shopper intent", body: "Shoppers describe activities, occasions and people — not SKUs.", acs: "Interpret natural-language queries beyond literal keywords." },
