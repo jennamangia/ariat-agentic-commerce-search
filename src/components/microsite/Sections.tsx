@@ -239,16 +239,13 @@ export function Today() {
   );
 }
 
-function ProductCard({ p, hideWhy }: { p: Product; hideWhy?: boolean }) {
-  return <article data-product-card className="flex min-w-0 flex-col rounded-2xl border bg-card p-4 text-card-foreground shadow-soft transition-transform duration-300 hover:-translate-y-1">
+function ProductCard({ p, rationaleId }: { p: Product; rationaleId: string }) {
+  return <article data-product-card aria-describedby={rationaleId} className="flex min-w-0 flex-col rounded-2xl border bg-card p-4 text-card-foreground shadow-soft transition-transform duration-300 hover:-translate-y-1">
     <div className="flex aspect-[3/2] items-center justify-center overflow-hidden rounded-xl bg-card p-2">
       {p.image ? <img src={p.image} alt={p.name} loading="lazy" className="h-full w-full object-contain" /> : <div className="p-3 text-center text-xs text-muted-foreground"><ImageIcon className="mx-auto mb-2 size-8" />Authentic product photo pending</div>}
     </div>
     <h3 className="mt-3 text-sm font-semibold leading-snug">{p.name}</h3>
     {p.price && <p className="mt-1 text-sm font-semibold">{p.price}</p>}
-    <div className="mt-2 flex flex-wrap gap-1">{p.tags.map(t => <span key={t} className="rounded-sm bg-accent px-2 py-1 text-[11px] text-accent-foreground">{t}</span>)}</div>
-    {p.why && !hideWhy && <p className="mt-3 text-xs leading-relaxed text-muted-foreground"><span className="font-semibold text-primary">Why this matches:</span> {p.why}</p>}
-    {p.source && <a href={p.source} target="_blank" rel="noreferrer" className="mt-auto pt-3 text-xs font-semibold text-primary underline">Product details ↗</a>}
   </article>;
 }
 
@@ -268,7 +265,19 @@ export function Reimagined() {
           <div className="flex flex-wrap gap-2">{q.understood.map(t => <span key={t} className="rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground">{t}</span>)}</div>
         </div>
         <p className="mt-5 flex items-center gap-2 text-sm font-semibold text-primary"><Sparkles className="size-4" />{q.annotation}</p>
-        <div data-acs-results className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4">{q.products.map((p) => <ProductCard key={p.name} p={p} />)}</div>
+        <div data-acs-results className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4">{q.products.map((p, i) => <ProductCard key={p.name} p={p} rationaleId={`${q.id}-rationale-${i}`} />)}</div>
+        <aside aria-labelledby={`${q.id}-rationale-title`} className="mt-8 border-t border-border pt-6 text-muted-foreground">
+          <h3 id={`${q.id}-rationale-title`} className="text-sm font-semibold">Why ACS surfaced these products.</h3>
+          <p className="mt-2 text-xs leading-relaxed">Illustrative relevance rationale — not part of the ACS product interface.</p>
+          <ol className="mt-5 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {q.products.map((p, i) => <li key={p.name} id={`${q.id}-rationale-${i}`} className="min-w-0">
+              <h4 className="text-xs font-semibold leading-snug">{p.name}</h4>
+              <div className="mt-2 flex flex-wrap gap-1">{p.tags.map(t => <span key={t} className="rounded-sm bg-accent px-2 py-1 text-[11px] text-accent-foreground">{t}</span>)}</div>
+              {p.why && <p className="mt-3 text-xs leading-relaxed"><span className="font-semibold">Why this matches:</span> {p.why}</p>}
+              {p.source && <a href={p.source} target="_blank" rel="noreferrer" className="mt-3 inline-block text-xs font-semibold text-primary underline">Product details ↗</a>}
+            </li>)}
+          </ol>
+        </aside>
       </div>
     </div>
   </section>;

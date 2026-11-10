@@ -1,0 +1,55 @@
+import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
+import { afterEach, describe, expect, it } from "vitest";
+import { Reimagined } from "@/components/microsite/Sections";
+import { skechers } from "@/config/accounts/skechers";
+
+afterEach(cleanup);
+
+describe("ACS product results presentation", () => {
+  it.each(skechers.queries)("separates presentation rationale for $id", (query) => {
+    const { container } = render(<Reimagined />);
+    fireEvent.click(screen.getByRole("button", { name: `“${query.query}”` }));
+
+    const grid = container.querySelector("[data-acs-results]")!;
+    const cards = within(grid as HTMLElement).getAllByRole("article");
+    const rationale = screen.getByRole("complementary", {
+      name: "Why ACS surfaced these products.",
+    });
+    expect(grid.nextElementSibling).toBe(rationale);
+    expect(rationale).toHaveTextContent(
+      "Illustrative relevance rationale — not part of the ACS product interface.",
+    );
+    expect(cards).toHaveLength(4);
+    expect(within(rationale).getAllByRole("listitem")).toHaveLength(4);
+
+    query.products.forEach((product, index) => {
+      const card = cards[index]!;
+      expect(within(card).getByRole("img", { name: product.name })).toHaveAttribute(
+        "src",
+        product.image,
+      );
+      expect(within(card).getByRole("heading")).toHaveTextContent(product.name);
+      expect(card.textContent).toBe(`${product.name}${product.price}`);
+      expect(card.children).toHaveLength(3);
+
+      const explanation = within(rationale).getAllByRole("listitem")[index]!;
+      expect(within(explanation).getByRole("heading")).toHaveTextContent(product.name);
+      for (const tag of product.tags) {
+        expect(within(explanation).getByText(tag)).toBeInTheDocument();
+      }
+      expect(explanation).toHaveTextContent(product.why!);
+      expect(card).toHaveAttribute("aria-describedby", explanation.id);
+    });
+  });
+
+  it("replaces the rationale when the selected query changes", () => {
+    render(<Reimagined />);
+    const wedding = skechers.queries[1]!;
+    fireEvent.click(screen.getByRole("button", { name: `“${wedding.query}”` }));
+    expect(screen.queryByText(skechers.queries[0]!.products[0]!.name)).toBeNull();
+    expect(screen.getByRole("button", { name: `“${wedding.query}”` })).toHaveAttribute(
+      "aria-pressed",
+      "true",
+    );
+  });
+});
