@@ -219,7 +219,7 @@ const comparisonPoints = [
     title: "Relevance & Ranking",
     bloomreach:
       "Ranking signals, behavioral data, configuration, and merchandising strategies influence product ordering.",
-    acs: "Commerce-specific modeling informed by simulated shopping journeys connects shopper missions to suitable products.",
+    acs: "Unlike traditional signal-weighted ranking algorithms, ACS uses a commerce-specific language model trained on simulated shopping journeys, continuously informed by real shopper behavior, to understand intent and surface products most likely to convert.",
   },
   {
     title: "Cold Start",
