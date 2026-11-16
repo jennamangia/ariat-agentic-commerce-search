@@ -75,7 +75,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Agentic Commerce Search — Account Experience" },
-      { name: "description", content: "Account-specific concept for Salesforce Agentic Commerce Search." },
+      {
+        name: "description",
+        content: "Account-specific concept for Salesforce Agentic Commerce Search.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

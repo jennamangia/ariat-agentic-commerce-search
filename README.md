@@ -18,7 +18,7 @@ npm run build
 npm run test:deployment
 ```
 
-`npm run lint` also runs the existing ESLint/Prettier checks. Existing formatting violations are separate from deployment validation.
+`npm run lint` runs ESLint and the enforced Prettier checks.
 
 ## Vercel deployment
 
@@ -42,18 +42,8 @@ Adapted directly from `jennamangia/pixel-perfect-page-240` at commit `41e45dc478
 
 The calculator retains the source $500M revenue, 12% search share, 12% uplift defaults and all formulas and bounds. These are illustrative assumptions pending Ariat validation.
 
-### Required original screenshots (pending upload)
+### Original Ariat and customer screenshots
 
-The nine inline chat images were visible as references but were not supplied as downloadable files. No substitute screenshots or product imagery have been created. Place the exact original bytes at these local paths (update extensions in `src/config/accounts/ariat.ts` if the originals are not PNG):
+All nine screenshots from the supplied `ariat images.zip` are stored locally under `public/images/ariat`, with their original bytes preserved. The four Ariat screenshots and matching Boot Barn screenshots populate the synchronized query tabs; Ann Taylor appears alongside West Marine and PacSun in the customer examples. Click any screenshot to enlarge it.
 
-- `public/images/ariat/animal.png` — Ariat animal print
-- `public/images/ariat/girls.png` — Ariat girls riding shirt
-- `public/images/ariat/bride.png` — Ariat bride boots
-- `public/images/ariat/cozy.png` — Ariat cozy boots
-- `public/images/ariat/boot-barn-animal.png`
-- `public/images/ariat/boot-barn-girls.png`
-- `public/images/ariat/boot-barn-bride.png`
-- `public/images/ariat/boot-barn-cozy.png`
-- `public/images/ariat/ann-taylor.png`
-
-Until supplied, those screenshot panels explicitly indicate that the original file is pending. West Marine, PacSun, Astro, and all inherited images remain local and unchanged. Final image loading, screenshot legibility, and visual approval remain blocked on the originals.
+[Uploaded screenshot provenance](docs/ariat-asset-manifest.json) maps each original ZIP filename to its prepared image slot, byte count, and SHA-256 hash. Tests verify all nine images and their configured slots; the production output check verifies the same files are packaged without changes. All inherited images remain local and unchanged.

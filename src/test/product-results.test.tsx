@@ -7,15 +7,23 @@ import { ariat } from "@/config/accounts/ariat";
 afterEach(cleanup);
 function SearchSections() {
   const [active, setActive] = useState(0);
-  return <><Today active={active} setActive={setActive} /><Reimagined active={active} setActive={setActive} /></>;
+  return (
+    <>
+      <Today active={active} setActive={setActive} />
+      <Reimagined active={active} setActive={setActive} />
+    </>
+  );
 }
 describe("Ariat evidence and real Boot Barn results", () => {
-  it.each(ariat.queries)("synchronizes $id without hypothetical product cards", q => {
+  it.each(ariat.queries)("synchronizes $id without hypothetical product cards", (q) => {
     const { container } = render(<SearchSections />);
     const today = within(container.querySelector("#today")! as HTMLElement);
     const acs = within(container.querySelector("#with-acs")! as HTMLElement);
     fireEvent.click(today.getByRole("button", { name: `“${q.query}”` }));
-    expect(acs.getByRole("button", { name: `“${q.query}”` })).toHaveAttribute("aria-pressed", "true");
+    expect(acs.getByRole("button", { name: `“${q.query}”` })).toHaveAttribute(
+      "aria-pressed",
+      "true",
+    );
     expect(today.getByRole("img")).toHaveAttribute("src", q.screenshot);
     expect(acs.getByRole("img")).toHaveAttribute("src", q.acsScreenshot);
     expect(today.getByText(q.merchandising!)).toBeInTheDocument();
@@ -37,10 +45,17 @@ describe("Ariat evidence and real Boot Barn results", () => {
     const { container } = render(<Business />);
     const result = container.querySelector("[data-revenue-result]")!;
     expect(result).toHaveTextContent("+$7.2M");
-    fireEvent.change(screen.getByRole("slider", { name: "Expected search revenue per visitor (RPV) uplift slider" }), { target: { value: "20" } });
+    fireEvent.change(
+      screen.getByRole("slider", {
+        name: "Expected search revenue per visitor (RPV) uplift slider",
+      }),
+      { target: { value: "20" } },
+    );
     expect(result).toHaveTextContent("+$12.0M");
     fireEvent.click(screen.getByRole("button", { name: "Reset to defaults" }));
     expect(result).toHaveTextContent("+$7.2M");
-    expect(screen.getByText("Illustrative financial assumptions — pending Ariat-specific validation.")).toBeInTheDocument();
+    expect(
+      screen.getByText("Illustrative financial assumptions — pending Ariat-specific validation."),
+    ).toBeInTheDocument();
   });
 });
