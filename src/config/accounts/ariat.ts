@@ -18,7 +18,7 @@ export const ariat: AccountConfig = {
       query: "Animal print",
       screenshot: "/images/ariat/animal.png",
       acsScreenshot: "/images/ariat/boot-barn-animal.png",
-      merchandising: "Already merchandises · “Go Wild Animal Print” collection",
+      merchandising: "Existing Ariat Collection: Go Wild Animal Print",
       observation:
         "Just 1 result. The curated animal-print assortment isn’t being discovered through the broader trend. Visual product understanding can identify leopard, cow print, and animal-inspired designs beyond written attributes.",
       intent: [
@@ -41,7 +41,7 @@ export const ariat: AccountConfig = {
       query: "Button down little girls riding shirt",
       screenshot: "/images/ariat/girls.png",
       acsScreenshot: "/images/ariat/boot-barn-girls.png",
-      merchandising: "Already merchandises · Girls’ button-down western shirts in kids’ navigation",
+      merchandising: "Existing Navigation: Girls' Clothing → Button Down Shirts",
       observation:
         "1,212 results, with boys’ shirts prominently displayed. The complete request isn’t being prioritized.",
       intent: ["Age: little girls", "Garment: button-down shirt", "Context: riding"],
@@ -56,7 +56,7 @@ export const ariat: AccountConfig = {
       query: "Country western bride boots",
       screenshot: "/images/ariat/bride.png",
       acsScreenshot: "/images/ariat/boot-barn-bride.png",
-      merchandising: "Already merchandises · A dedicated wedding boots collection",
+      merchandising: "Existing Ariat Collection: Wedding Boots",
       observation:
         "1,293 results, with general western boots dominating. The bridal mission isn’t connecting to white, blue, embellished, and sparkly styles.",
       intent: ["Occasion: wedding", "Style: western bridal", "White, blue, embellished, sparkly"],

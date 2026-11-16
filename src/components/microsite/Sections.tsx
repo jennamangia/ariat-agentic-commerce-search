@@ -357,7 +357,7 @@ export function Today({ active, setActive }: { active: number; setActive: (i: nu
             <p className="mt-3 text-lg font-medium leading-snug">{q.observation}</p>
           </div>
           <div className="rounded-2xl bg-muted p-6">
-            <p className="eyebrow text-muted-foreground">Shopper said</p>
+            <p className="eyebrow text-muted-foreground">SHOPPER INTENT INFERRED</p>
             <ul className="mt-3 space-y-2 text-sm">
               {q.intent.map((t) => (
                 <li key={t} className="flex gap-2">
