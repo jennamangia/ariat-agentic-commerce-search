@@ -28,7 +28,7 @@ export const ariat: AccountConfig = {
       ],
       annotation: "Understands visual trends beyond exact catalog terminology.",
       resultSummary:
-        "340 results, including leopard, cow-print, and animal-inspired styles. A retailer-specific commerce model and AI-extracted visual attributes connect the trend to products.",
+        "Leopard, cow-print, and animal-inspired styles rise to the top. ACS combines its commerce-specific model with AI-extracted visual attributes to recognize the trend beyond exact product terminology.",
       understood: [
         "Visual trend: animal print",
         "Patterns: leopard, cow print",
@@ -47,7 +47,7 @@ export const ariat: AccountConfig = {
       intent: ["Age: little girls", "Garment: button-down shirt", "Context: riding"],
       annotation: "Understands the complete shopper request.",
       resultSummary:
-        "215 results, prominently featuring girls’ western shirts. Age, gender, garment type, and riding context work together.",
+        "Girls' western button-down shirts take priority. ACS understands age, gender, garment type, and riding context together.",
       understood: ["Age: little girls", "Garment: button-down shirt", "Context: riding"],
       products: [],
     },
@@ -62,7 +62,7 @@ export const ariat: AccountConfig = {
       intent: ["Occasion: wedding", "Style: western bridal", "White, blue, embellished, sparkly"],
       annotation: "Understands the occasion behind the search.",
       resultSummary:
-        "505 results, prominently featuring white, embellished, and bridal-appropriate western boots. Bridal style, western context, and product suitability guide discovery.",
+        "From white and embellished wedding boots to blue styles for a bride's 'something blue,' ACS connects western style with the occasion and traditions behind the search.",
       understood: [
         "Occasion: wedding",
         "Style: western bridal",
@@ -82,7 +82,7 @@ export const ariat: AccountConfig = {
       intent: ["Warmth and softness", "Sherpa-lined comfort", "Women’s footwear"],
       annotation: "Understands descriptive shopping intent.",
       resultSummary:
-        "444 results, featuring soft, warm, shearling-lined, and comfort-oriented footwear. Descriptive language connects to suitable product characteristics.",
+        "Soft, warm, shearling-lined, and comfort-oriented footwear takes priority. ACS connects descriptive language to relevant product characteristics.",
       understood: ["Warmth and softness", "Sherpa-lined comfort", "Women’s footwear"],
       products: [],
     },
