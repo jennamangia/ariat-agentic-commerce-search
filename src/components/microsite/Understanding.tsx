@@ -230,7 +230,7 @@ const comparisonPoints = [
     title: "Merchandising Effort",
     bloomreach:
       "Rules, synonyms, and manual relevance adjustments can require ongoing optimization.",
-    acs: "Model-driven relevance can reduce the need for ongoing manual relevance corrections.",
+    acs: "Model-driven relevance dramatically reduces the need for manual boosting, burying, synonym management, and ongoing rule maintenance — freeing merchandisers to focus on strategy instead of correcting search results.",
   },
 ];
 
