@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import assert from "node:assert/strict";
 import { readFile, access } from "node:fs/promises";
 import { resolve } from "node:path";
@@ -17,7 +18,7 @@ const { default: server } = await import(pathToFileURL(resolve(functionDir, runt
 const response = await server.fetch(new Request("http://localhost/"));
 assert.equal(response.status, 200, "Built SSR function must render the homepage");
 const html = await response.text();
-assert.match(html.replace(/<[^>]*>/g, ""), /What if Skechers understood every shopper/);
+assert.match(html.replace(/<[^>]*>/g, ""), /What if Ariat understood every shopper/);
 assert.match(html, /<main/);
 assert.doesNotMatch(html, /__l5e|__lovable|lovable\.(dev|app)/);
 
@@ -32,3 +33,16 @@ assert.match(await missing.text(), /Page not found/);
 console.log(
   `Vercel output verified: Node 24 SSR (200), 404 routing, ${assets.size} local static assets.`,
 );
+
+const screenshots = JSON.parse(await readFile(resolve("docs/ariat-asset-manifest.json"), "utf8"));
+assert.equal(screenshots.length, 9);
+for (const screenshot of screenshots) {
+  const file = resolve(output, "static", screenshot.path.replace(/^public\//, ""));
+  const bytes = await readFile(file);
+  assert.equal(
+    createHash("sha256").update(bytes).digest("hex"),
+    screenshot.sha256,
+    screenshot.path,
+  );
+}
+console.log("All nine original uploaded screenshots are packaged with matching SHA-256 hashes.");

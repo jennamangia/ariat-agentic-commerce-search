@@ -1,9 +1,19 @@
-export type Product = { name: string; image: string; tags: string[]; price?: string; source?: string; why?: string };
+export type Product = {
+  name: string;
+  image: string;
+  tags: string[];
+  price?: string;
+  source?: string;
+  why?: string;
+};
 
 export type QueryCase = {
   id: string;
   query: string;
   screenshot: string;
+  merchandising?: string;
+  acsScreenshot?: string;
+  resultSummary?: string;
   observation: string;
   intent: string[];
   annotation: string;
@@ -17,7 +27,13 @@ export type AccountConfig = {
   heroSearches: string[];
   queries: QueryCase[];
   calculator: { annualRevenue: number; searchSharePct: number; upliftPct: number };
-  customerExamples: { name: string; query: string; screenshot: string; explanation: string; takeaway: string }[];
+  customerExamples: {
+    name: string;
+    query: string;
+    screenshot: string;
+    explanation: string;
+    takeaway: string;
+  }[];
   outcomes: { value: string; label: string }[];
   challenges: { title: string; body: string; acs: string }[];
   agent: {

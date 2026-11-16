@@ -24,6 +24,10 @@ describe("Skechers modeled revenue", () => {
     expect(revenueLimits.upliftPct).toEqual({ min: 0, max: 25 });
   });
   it("models the 5%, 12%, 18% scenarios on the same eligible base", () => {
-    expect(modeledScenarios.map(s => Math.round(searchRevenueModel(500_000_000, 12, s.upliftPct).incrementalRevenue))).toEqual([3_000_000, 7_200_000, 10_800_000]);
+    expect(
+      modeledScenarios.map((s) =>
+        Math.round(searchRevenueModel(500_000_000, 12, s.upliftPct).incrementalRevenue),
+      ),
+    ).toEqual([3_000_000, 7_200_000, 10_800_000]);
   });
 });

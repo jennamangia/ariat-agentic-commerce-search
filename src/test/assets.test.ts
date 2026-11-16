@@ -2,6 +2,8 @@ import { createHash } from "node:crypto";
 import { readFileSync, readdirSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
+import ariatManifest from "../../docs/ariat-asset-manifest.json";
+import { ariat } from "@/config/accounts/ariat";
 import manifest from "../../docs/asset-manifest.json";
 
 const root = resolve(import.meta.dirname, "../..");
@@ -24,6 +26,23 @@ describe("Original image migration", () => {
       if (file === "test/assets.test.ts") continue;
       const source = readFileSync(resolve(root, "src", file), "utf8");
       expect(source, file).not.toMatch(/__l5e|@lovable\.dev|__lovable/);
+    }
+  });
+});
+
+describe("Original Ariat screenshot uploads", () => {
+  it("preserves the bytes of all nine supplied screenshots in their configured slots", () => {
+    const slots = ariat.queries.flatMap((q) => [q.screenshot, q.acsScreenshot!]);
+    slots.push(ariat.customerExamples.find((c) => c.name === "Ann Taylor")!.screenshot);
+    expect(ariatManifest).toHaveLength(9);
+    expect(ariatManifest.map((asset) => asset.path.replace(/^public/, "")).sort()).toEqual(
+      slots.sort(),
+    );
+    for (const asset of ariatManifest) {
+      const bytes = readFileSync(resolve(root, asset.path));
+      expect(bytes.subarray(0, 8).toString("hex"), asset.path).toBe("89504e470d0a1a0a");
+      expect(bytes.length, asset.path).toBe(asset.size);
+      expect(createHash("sha256").update(bytes).digest("hex"), asset.path).toBe(asset.sha256);
     }
   });
 });

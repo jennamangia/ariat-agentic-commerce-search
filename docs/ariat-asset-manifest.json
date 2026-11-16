@@ -1,0 +1,56 @@
+[
+  {
+    "source": "animal print ariat.png",
+    "path": "public/images/ariat/animal.png",
+    "size": 245617,
+    "sha256": "cb8c20ed09dc8e8124b3717e86df986518911a2d3fc24c31fe07923225e4bb2a"
+  },
+  {
+    "source": "animal print boot barn.png",
+    "path": "public/images/ariat/boot-barn-animal.png",
+    "size": 693313,
+    "sha256": "5630a6842d1243e6cbae5d004bba36a99558d721f280e05165fbe715e180ce79"
+  },
+  {
+    "source": "ann taylor.png",
+    "path": "public/images/ariat/ann-taylor.png",
+    "size": 814792,
+    "sha256": "be5b1bfc1b0d0bd03c6c44f8bfffeef5b1da760c282ab8b9eb6f14814d738694"
+  },
+  {
+    "source": "button down little girls riding shirt ariat.png",
+    "path": "public/images/ariat/girls.png",
+    "size": 728364,
+    "sha256": "82043cfbe046fd70769783826eb5869f604ba2905698b1f2a722cfd458ec282f"
+  },
+  {
+    "source": "button down little girls riding shirt boot barn.png",
+    "path": "public/images/ariat/boot-barn-girls.png",
+    "size": 675122,
+    "sha256": "d2a981db35c3dda1fefd8860d7e33a9e7d704e95ae4a9d6da68f68274d0ea1c8"
+  },
+  {
+    "source": "country western bride boots ariat.png",
+    "path": "public/images/ariat/bride.png",
+    "size": 532288,
+    "sha256": "c42b17c1ba052706ed4996ad72c4cd662ba571ccd10c2c9c12b3a71a32ac628b"
+  },
+  {
+    "source": "country western bride boots boot barn.png",
+    "path": "public/images/ariat/boot-barn-bride.png",
+    "size": 705815,
+    "sha256": "527c5aece25bd8f8d81c6b58009b74a4105731a9f0f6a096b627970548191a0b"
+  },
+  {
+    "source": "cozy womens boots ariat.png",
+    "path": "public/images/ariat/cozy.png",
+    "size": 577375,
+    "sha256": "3f9aa3cccb0539bda83c372f53565021a6df3a88232c77a93f4d00326c3193d1"
+  },
+  {
+    "source": "cozy womens boots boot barn.png",
+    "path": "public/images/ariat/boot-barn-cozy.png",
+    "size": 587586,
+    "sha256": "220a326039bb644ecd46a26ce166eb2538f3637f6781151fffdb090e26437ae5"
+  }
+]
