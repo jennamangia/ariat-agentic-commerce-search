@@ -42,3 +42,23 @@ export function Merchandising() {
     <div className="reveal mt-10 grid items-center gap-8 rounded-3xl border bg-card p-8 shadow-soft md:grid-cols-[auto_1fr] md:p-10"><div><p className="font-display text-6xl font-semibold text-primary">−85%</p><p className="mt-2 text-sm font-semibold">Reported merchandising rule reduction</p></div><p className="text-2xl font-semibold md:text-3xl">Less time troubleshooting relevance. More time creating compelling shopping experiences.</p></div>
   </div></section>;
 }
+
+const comparisonPoints = [
+  { title: "Product Understanding", bloomreach: "Semantic search and vector similarity, heavily influenced by product descriptions and catalog attributes.", acs: "A retailer-specific commerce language model understands product purpose, shopper intent, and context — enriched by AI-extracted visual attributes." },
+  { title: "Relevance & Ranking", bloomreach: "Ranking signals, behavioral data, configuration, and merchandising strategies influence product ordering.", acs: "Commerce-specific modeling informed by simulated shopping journeys connects shopper missions to suitable products." },
+  { title: "Cold Start", bloomreach: "New products may have limited historical engagement signals.", acs: "Simulated shopping journeys help address limited historical interaction data." },
+  { title: "Merchandising Effort", bloomreach: "Rules, synonyms, and manual relevance adjustments can require ongoing optimization.", acs: "Model-driven relevance can reduce the need for ongoing manual relevance corrections." },
+];
+
+export function Comparison() {
+  return <section id="comparison" className="py-28"><div className="mx-auto max-w-7xl px-6">
+    <div className="reveal max-w-5xl"><p className="eyebrow mb-5 text-primary">04 · Bloomreach vs. Salesforce ACS</p><h2 className="text-4xl font-semibold md:text-6xl">From Product Matching to <span className="text-gradient">Shopper Understanding.</span></h2></div>
+    <div className="reveal mt-12 grid gap-6 md:grid-cols-2">
+      {[false, true].map(acs => <article key={String(acs)} className={`md:grid md:grid-rows-subgrid gap-0 rounded-3xl border p-6 shadow-soft md:row-span-5 md:p-8 ${acs ? "border-primary bg-navy text-navy-foreground shadow-glow" : "bg-secondary"}`}>
+        <div className="pb-8"><p className={`eyebrow ${acs ? "text-sky" : "text-muted-foreground"}`}>{acs ? "Salesforce ACS" : "Bloomreach"}</p><h3 className="mt-3 text-2xl font-semibold">{acs ? "Model-Driven Commerce Intelligence" : "Catalog-Centric Relevance"}</h3></div>
+        {comparisonPoints.map(p => <div key={p.title} className={`border-t py-6 ${acs ? "border-navy-muted/30" : "border-border"}`}><h4 className={`text-sm font-semibold ${acs ? "text-sky" : "text-foreground"}`}>{p.title}</h4><p className={`mt-3 text-sm leading-relaxed ${acs ? "text-navy-muted" : "text-muted-foreground"}`}>{acs ? p.acs : p.bloomreach}</p></div>)}
+      </article>)}
+    </div>
+    <p className="reveal mt-10 text-xl font-semibold">Your merchandisers already know what shoppers want. Your search should, too.</p>
+  </div></section>;
+}

@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { account, type Product } from "@/config/accounts";
+import { account } from "@/config/accounts";
 
 import { Button } from "@/components/ui/button";
-import { RotateCcw, Search, Image as ImageIcon, Sparkles, X, ZoomIn } from "lucide-react";
+import { RotateCcw, Search, Sparkles, X, ZoomIn } from "lucide-react";
 import astro from "@/assets/characters/astro-trim.png";
 import einstein from "@/assets/characters/einstein.png";
 import { searchRevenueModel, revenueLimits, modeledScenarios } from "@/lib/revenue-model";
@@ -111,6 +111,7 @@ export function Hero() {
           <p className="mt-6 max-w-xl text-lg text-navy-muted md:text-xl">
             Reimagining product discovery with Salesforce Agentic Commerce Search.
           </p>
+          <p className="mt-5 max-w-xl text-base text-navy-muted">Ariat already knows western shoppers. Imagine a search experience that understands them just as well.</p>
           <div className="mt-10 flex max-w-xl items-center gap-3 rounded-2xl bg-card px-6 py-4 text-lg text-card-foreground shadow-glow">
             <span className="text-primary"><SearchIcon /></span>
             <Typewriter phrases={a.heroSearches} />
@@ -185,16 +186,22 @@ export function Lightbox({ src, onClose }: { src: string | null; onClose: () => 
   </div>;
 }
 
-function Screenshot({ src, onZoom }: { src: string; onZoom: () => void }) {
+function EvidenceImage({ src, alt, className }: { src: string; alt: string; className?: string }) {
+  const [failedSrc, setFailedSrc] = useState<string | null>(null);
+  if (failedSrc === src) return <span role="status" className="flex min-h-64 items-center justify-center bg-muted p-10 text-center text-sm text-muted-foreground">Original screenshot awaiting file upload.</span>;
+  return <img src={src} alt={alt} className={className} onError={() => setFailedSrc(src)} />;
+}
+
+function Screenshot({ src, onZoom, retailer = "Ariat" }: { src: string; onZoom: () => void; retailer?: string }) {
   return (
     <Button onClick={onZoom} variant="ghost" className="group relative block h-auto w-full whitespace-normal p-0 cursor-zoom-in overflow-hidden rounded-2xl border bg-card shadow-soft">
       <div className="flex items-center gap-1.5 border-b bg-muted px-4 py-2.5">
         <span className="h-2.5 w-2.5 rounded-full bg-border" />
         <span className="h-2.5 w-2.5 rounded-full bg-border" />
         <span className="h-2.5 w-2.5 rounded-full bg-border" />
-        <span className="ml-3 text-xs text-muted-foreground">skechers.com · captured search results</span>
+        <span className="ml-3 text-xs text-muted-foreground">{retailer} · captured search results</span>
       </div>
-      <img src={src} alt="Actual Skechers search results screenshot" className="w-full transition-transform duration-700 group-hover:scale-[1.02]" />
+      <EvidenceImage src={src} alt={`Actual ${retailer} search results screenshot`} className="w-full transition-transform duration-700 group-hover:scale-[1.02]" />
       <span className="absolute bottom-4 right-4 rounded-full bg-navy px-3 py-1.5 text-xs font-semibold text-navy-foreground opacity-90">
         Click to zoom
       </span>
@@ -203,8 +210,7 @@ function Screenshot({ src, onZoom }: { src: string; onZoom: () => void }) {
 }
 
 /* 2 — Today */
-export function Today() {
-  const [active, setActive] = useState(0);
+export function Today({ active, setActive }: { active: number; setActive: (i: number) => void }) {
   const [zoom, setZoom] = useState<string | null>(null);
   const q = a.queries[active];
   if (!q) return null;
@@ -213,10 +219,12 @@ export function Today() {
       <div className="reveal max-w-3xl">
         <Eyebrow>01 · The search experience today</Eyebrow>
         <h2 className="text-4xl font-semibold md:text-6xl">
-          Your shoppers are telling you what they want. <span className="text-gradient">Is search listening?</span>
+          Your Navigation Knows Your Products. <span className="text-gradient">Does Your Search?</span>
         </h2>
       </div>
+      <p className="reveal mt-6 max-w-3xl text-lg text-muted-foreground">Ariat already organizes products around the styles, occasions, and shoppers its customers care about. But when those same intentions appear in the search bar, the experience tells a different story.</p>
       <div className="reveal mt-12"><QueryTabs active={active} setActive={setActive} /></div>
+      <p className="reveal mt-8 w-fit rounded-full bg-accent px-4 py-2 text-sm font-semibold text-primary">{q.merchandising}</p>
       <div className="reveal mt-10 grid gap-8 lg:grid-cols-[1fr_340px]">
         <Screenshot key={q.id} src={q.screenshot} onZoom={() => setZoom(q.screenshot)} />
         <aside className="flex flex-col gap-4">
@@ -234,52 +242,31 @@ export function Today() {
           </div>
         </aside>
       </div>
+      <p className="reveal mt-10 text-xl font-semibold">The products are there. The merchandising is there. The shopper intent is there. The connection is missing.</p>
       <Lightbox src={zoom} onClose={() => setZoom(null)} />
     </section>
   );
 }
 
-function ProductCard({ p, rationaleId }: { p: Product; rationaleId: string }) {
-  return <article data-product-card aria-describedby={rationaleId} className="flex min-w-0 flex-col rounded-2xl border bg-card p-4 text-card-foreground shadow-soft transition-transform duration-300 hover:-translate-y-1">
-    <div className="flex aspect-[3/2] items-center justify-center overflow-hidden rounded-xl bg-card p-2">
-      {p.image ? <img src={p.image} alt={p.name} loading="lazy" className="h-full w-full object-contain" /> : <div className="p-3 text-center text-xs text-muted-foreground"><ImageIcon className="mx-auto mb-2 size-8" />Authentic product photo pending</div>}
-    </div>
-    <h3 className="mt-3 text-sm font-semibold leading-snug">{p.name}</h3>
-    {p.price && <p className="mt-1 text-sm font-semibold">{p.price}</p>}
-  </article>;
-}
-
-/* 3 — ACS results */
-export function Reimagined() {
-  const [active, setActive] = useState(0);
+/* 3 — Real Boot Barn ACS results, synchronized with Ariat evidence. */
+export function Reimagined({ active, setActive }: { active: number; setActive: (i: number) => void }) {
+  const [zoom, setZoom] = useState<string | null>(null);
   const q = a.queries[active];
   if (!q) return null;
   return <section id="with-acs" className="relative overflow-hidden bg-secondary py-28">
     <Cloud className="pointer-events-none absolute -right-16 top-10 w-80 text-primary/10" />
     <div className="relative mx-auto max-w-7xl px-6">
-      <div className="reveal max-w-4xl"><Eyebrow>02 · What the experience could look like</Eyebrow><h2 className="text-4xl font-semibold md:text-6xl">Your Search Experience <span className="text-gradient">with ACS.</span></h2></div>
+      <div className="reveal max-w-4xl"><Eyebrow>02 · Boot Barn · The ACS difference</Eyebrow><h2 className="text-4xl font-semibold md:text-6xl">Same Searches. Smarter Results. <span className="text-gradient">Powered by ACS.</span></h2><p className="mt-6 text-lg text-muted-foreground">See how Boot Barn connects the very same shopper searches to relevant products with Salesforce Agentic Commerce Search.</p></div>
       <div className="reveal mt-12"><QueryTabs active={active} setActive={setActive} /></div>
       <div key={q.id} className="animate-in fade-in slide-in-from-bottom-3 mt-10 duration-500">
-        <div className="flex flex-col gap-5 rounded-2xl bg-navy p-6 text-navy-foreground shadow-soft md:flex-row md:items-center md:justify-between">
-          <p className="flex min-w-0 items-center gap-3 text-lg font-semibold"><Search className="size-5 shrink-0 text-sky" />“{q.query}”</p>
-          <div className="flex flex-wrap gap-2">{q.understood.map(t => <span key={t} className="rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground">{t}</span>)}</div>
+        <div className="flex flex-col gap-5 rounded-2xl bg-navy p-6 text-navy-foreground shadow-soft md:flex-row md:items-center md:justify-between"><p className="flex min-w-0 items-center gap-3 text-lg font-semibold"><Search className="size-5 shrink-0 text-sky" />“{q.query}”</p><div className="flex flex-wrap gap-2">{q.understood.map(t => <span key={t} className="rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground">{t}</span>)}</div></div>
+        <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_340px]">
+          <Screenshot src={q.acsScreenshot!} retailer="Boot Barn" onZoom={() => setZoom(q.acsScreenshot!)} />
+          <aside className="self-start rounded-2xl border bg-card p-6 shadow-soft"><p className="flex items-center gap-2 text-sm font-semibold text-primary"><Sparkles className="size-4" />{q.annotation}</p><p className="mt-4 text-sm leading-relaxed text-muted-foreground">{q.resultSummary}</p></aside>
         </div>
-        <p className="mt-5 flex items-center gap-2 text-sm font-semibold text-primary"><Sparkles className="size-4" />{q.annotation}</p>
-        <div data-acs-results className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4">{q.products.map((p, i) => <ProductCard key={p.name} p={p} rationaleId={`${q.id}-rationale-${i}`} />)}</div>
-        <aside aria-labelledby={`${q.id}-rationale-title`} className="mt-8 border-t border-border pt-6 text-muted-foreground">
-          <h3 id={`${q.id}-rationale-title`} className="text-sm font-semibold">Why these products align with shopper intent.</h3>
-          <ol className="mt-5 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {q.products.map((p, i) => <li key={p.name} id={`${q.id}-rationale-${i}`} className="min-w-0">
-              <h4 className="text-xs font-semibold leading-snug">{p.name}</h4>
-              <div className="mt-2 flex flex-wrap gap-1">{p.tags.map(t => <span key={t} className="rounded-sm bg-accent px-2 py-1 text-[11px] text-accent-foreground">{t}</span>)}</div>
-              {p.why && <p className="mt-3 text-xs leading-relaxed"><span className="font-semibold">Why it fits:</span> {p.why}</p>}
-              {p.source && <a href={p.source} target="_blank" rel="noreferrer" className="mt-3 inline-block text-xs font-semibold text-primary underline">Product details ↗</a>}
-            </li>)}
-          </ol>
-        </aside>
-        <p className="mt-4 text-xs leading-relaxed text-muted-foreground">Illustrative product discovery experience based on ACS capabilities; results are not generated by a Skechers-trained model.</p>
       </div>
-    </div>
+      <p className="reveal mt-10 text-xl font-semibold">Ariat has the products. ACS has the intelligence to connect them to shoppers.</p>
+    </div><Lightbox src={zoom} onClose={() => setZoom(null)} />
   </section>;
 }
 
@@ -302,9 +289,9 @@ export function Business() {
     <div className="reveal"><Eyebrow>06 · Customer Success Metrics</Eyebrow><h2 className="text-4xl font-semibold md:text-5xl">Better discovery. Measurable business impact.</h2></div>
     <div className="reveal mt-10 grid grid-cols-2 gap-4 lg:grid-cols-3">{a.outcomes.map(m => <article key={m.label} className="rounded-lg border bg-card p-6 shadow-soft"><p className="font-display text-4xl font-semibold text-primary md:text-5xl">{m.value}</p><p className="mt-3 text-sm font-semibold">{m.label}</p></article>)}</div>
     <p className="mt-5 max-w-4xl text-xs leading-relaxed text-muted-foreground">Source: Customer Success Metrics — outcomes reported by Agentic Commerce Search customers. Individual results vary and are not a guarantee of performance.</p>
-    <div className="reveal mt-20 border-t pt-14"><Eyebrow>Modeled Skechers Opportunity</Eyebrow><h2 className="text-4xl font-semibold md:text-5xl">What Could This Mean for {a.name}?</h2><p className="mt-4 text-lg text-muted-foreground">Explore how improvements in search performance could translate into incremental ecommerce revenue.</p></div>
+    <div className="reveal mt-20 border-t pt-14"><Eyebrow>Modeled Ariat Opportunity</Eyebrow><h2 className="text-4xl font-semibold md:text-5xl">What Could This Mean for {a.name}?</h2><p className="mt-4 text-lg text-muted-foreground">Explore how improvements in search performance could translate into incremental ecommerce revenue.</p><p className="mt-3 text-xs text-muted-foreground">Illustrative financial assumptions — pending Ariat-specific validation.</p></div>
     <div className="reveal mt-10 grid gap-10 lg:grid-cols-2"><div className="space-y-7">
-      <ModelSlider label="Annual ecommerce revenue" note="Estimate — illustrative starting point. Replace with Skechers actuals." value={revenue} limits={revenueLimits.annualRevenue} step={10_000_000} onChange={setRevenue} money />
+      <ModelSlider label="Annual ecommerce revenue" note="Estimate — illustrative starting point. Replace with Ariat actuals." value={revenue} limits={revenueLimits.annualRevenue} step={10_000_000} onChange={setRevenue} money />
       <ModelSlider label="Share of ecommerce revenue attributable to site search" note="Estimate — adjustable, 12% by default. Revenue from sessions involving site search." value={share} limits={revenueLimits.searchSharePct} step={1} onChange={setShare} />
       <ModelSlider label="Expected search revenue per visitor (RPV) uplift" note="Estimate — adjustable uplift assumption. RPV measures revenue generated per visitor. Improvements can reflect conversion, average order value, or both." value={uplift} limits={revenueLimits.upliftPct} step={1} onChange={setUplift} />
       <Button variant="outline" onClick={() => {setRevenue(a.calculator.annualRevenue);setShare(a.calculator.searchSharePct);setUplift(a.calculator.upliftPct);}}><RotateCcw />Reset to defaults</Button>
@@ -394,7 +381,7 @@ export function Agent() {
 /* 6 — Proof */
 export function Proof() {
   const [zoom, setZoom] = useState<string | null>(null);
-  return <section id="customers" className="bg-secondary py-24"><div className="mx-auto max-w-7xl px-6"><div className="reveal max-w-4xl"><Eyebrow>03 · Real Customer Search Examples</Eyebrow><h2 className="text-4xl font-semibold md:text-5xl">Real Shoppers. Real Questions. More Relevant Results.</h2></div><div className="mt-12 grid gap-x-8 gap-y-12 lg:grid-cols-3 lg:gap-y-0">{a.customerExamples.map(c => <article key={c.name} className="reveal min-w-0 lg:grid lg:grid-rows-subgrid lg:row-span-5"><p className="text-xl font-bold">{c.name}</p><h3 className="min-h-16 pt-3 text-lg font-semibold">“{c.query}”</h3><div className="flex pt-4"><Button variant="ghost" onClick={() => setZoom(c.screenshot)} aria-label={`Enlarge ${c.name} search screenshot`} className="relative flex h-auto w-full items-center justify-center rounded-lg border bg-card p-0"><span className="relative block w-full"><img src={c.screenshot} alt={`${c.name} original search results for ${c.query}`} className="block h-auto w-full object-contain" /><span className="absolute bottom-3 right-3 rounded-md bg-primary p-2 text-primary-foreground"><ZoomIn /></span></span></Button></div><p className="pt-5 text-sm leading-relaxed text-muted-foreground">{c.explanation}</p><p className="pt-4 text-sm font-semibold text-primary">{c.takeaway}</p></article>)}</div></div><Lightbox src={zoom} onClose={() => setZoom(null)} /></section>;
+  return <section id="customers" className="bg-secondary py-24"><div className="mx-auto max-w-7xl px-6"><div className="reveal max-w-4xl"><Eyebrow>03 · Real Customer Search Examples</Eyebrow><h2 className="text-4xl font-semibold md:text-5xl">Different Shoppers. Different Intentions. One Smarter Search.</h2><p className="mt-6 text-lg text-muted-foreground">From specialized terminology to personal style and shopping occasions, ACS understands what shoppers actually mean.</p></div><div className="mt-12 grid gap-x-8 gap-y-12 lg:grid-cols-3 lg:gap-y-0">{a.customerExamples.map(c => <article key={c.name} className="reveal min-w-0 lg:grid lg:grid-rows-subgrid lg:row-span-5"><p className="text-xl font-bold">{c.name}</p><h3 className="min-h-16 pt-3 text-lg font-semibold">“{c.query}”</h3><div className="flex pt-4"><Button variant="ghost" onClick={() => setZoom(c.screenshot)} aria-label={`Enlarge ${c.name} search screenshot`} className="relative flex h-auto w-full items-center justify-center rounded-lg border bg-card p-0"><span className="relative block w-full"><EvidenceImage src={c.screenshot} alt={`${c.name} original search results for ${c.query}`} className="block h-auto w-full object-contain" /><span className="absolute bottom-3 right-3 rounded-md bg-primary p-2 text-primary-foreground"><ZoomIn /></span></span></Button></div><p className="pt-5 text-sm leading-relaxed text-muted-foreground">{c.explanation}</p><p className="pt-4 text-sm font-semibold text-primary">{c.takeaway}</p></article>)}</div></div><Lightbox src={zoom} onClose={() => setZoom(null)} /></section>;
 }
 
 /* 7 — Close */

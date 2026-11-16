@@ -1,6 +1,6 @@
-# Skechers × Agentic Commerce Search
+# Ariat × Agentic Commerce Search
 
-An executive concept showing how Salesforce Agentic Commerce Search could transform product discovery for Skechers.
+An executive concept showing how Salesforce Agentic Commerce Search could transform product discovery for Ariat.
 
 ## Development
 
@@ -36,4 +36,24 @@ All 63 original image files, including earlier unused uploads, are committed und
 
 [Asset provenance](docs/asset-manifest.json) records each original source URL, asset ID, byte count, and recovered SHA-256 hash. The migration preserved all 8,206,965 bytes without image conversion, resizing, or substitutions. One original named `einstein.png` contains WebP bytes; those original bytes are deliberately preserved. Source URLs are audit metadata only. The image integrity tests detect missing or altered files.
 
-Layout, copy, account configuration, calculator behavior, and the existing Google Fonts stylesheet are unchanged. The Lovable build wrapper, runtime telemetry hooks, and asset pointers have been removed.
+## Ariat adaptation
+
+Adapted directly from `jennamangia/pixel-perfect-page-240` at commit `41e45dc478cb013987c9466ae6afbca801255499`; the source repository and deployment are unchanged. The hero, design tokens, Astro animation, customer card layout, lightbox, and calculator implementation are retained. The current and Boot Barn evidence sections share query state.
+
+The calculator retains the source $500M revenue, 12% search share, 12% uplift defaults and all formulas and bounds. These are illustrative assumptions pending Ariat validation.
+
+### Required original screenshots (pending upload)
+
+The nine inline chat images were visible as references but were not supplied as downloadable files. No substitute screenshots or product imagery have been created. Place the exact original bytes at these local paths (update extensions in `src/config/accounts/ariat.ts` if the originals are not PNG):
+
+- `public/images/ariat/animal.png` — Ariat animal print
+- `public/images/ariat/girls.png` — Ariat girls riding shirt
+- `public/images/ariat/bride.png` — Ariat bride boots
+- `public/images/ariat/cozy.png` — Ariat cozy boots
+- `public/images/ariat/boot-barn-animal.png`
+- `public/images/ariat/boot-barn-girls.png`
+- `public/images/ariat/boot-barn-bride.png`
+- `public/images/ariat/boot-barn-cozy.png`
+- `public/images/ariat/ann-taylor.png`
+
+Until supplied, those screenshot panels explicitly indicate that the original file is pending. West Marine, PacSun, Astro, and all inherited images remain local and unchanged. Final image loading, screenshot legibility, and visual approval remain blocked on the originals.

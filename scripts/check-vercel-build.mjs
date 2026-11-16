@@ -17,7 +17,7 @@ const { default: server } = await import(pathToFileURL(resolve(functionDir, runt
 const response = await server.fetch(new Request("http://localhost/"));
 assert.equal(response.status, 200, "Built SSR function must render the homepage");
 const html = await response.text();
-assert.match(html.replace(/<[^>]*>/g, ""), /What if Skechers understood every shopper/);
+assert.match(html.replace(/<[^>]*>/g, ""), /What if Ariat understood every shopper/);
 assert.match(html, /<main/);
 assert.doesNotMatch(html, /__l5e|__lovable|lovable\.(dev|app)/);
 

@@ -1,13 +1,14 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { Hero, Today, Reimagined, Business, Agent, Proof, Closing, useReveal } from "@/components/microsite/Sections";
-import { Differentiators, Merchandising } from "@/components/microsite/Understanding";
+import { Hero, Today, Reimagined, Business, Proof, Closing, useReveal } from "@/components/microsite/Sections";
+import { Comparison } from "@/components/microsite/Understanding";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Skechers × Agentic Commerce Search — Reimagining Discovery" },
-      { name: "description", content: "An executive concept showing how Salesforce Agentic Commerce Search could transform product discovery for Skechers." },
-      { property: "og:title", content: "Skechers × Agentic Commerce Search" },
+      { title: "Ariat × Agentic Commerce Search — Reimagining Discovery" },
+      { name: "description", content: "An executive concept showing how Salesforce Agentic Commerce Search could transform product discovery for Ariat." },
+      { property: "og:title", content: "Ariat × Agentic Commerce Search" },
       { property: "og:description", content: "From matching words to understanding shopper intent." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -18,16 +19,15 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   useReveal();
+  const [active, setActive] = useState(0);
   return (
     <main>
       <Hero />
-      <Today />
-      <Reimagined />
+      <Today active={active} setActive={setActive} />
+      <Reimagined active={active} setActive={setActive} />
       <Proof />
-      <Differentiators />
-      <Agent />
+      <Comparison />
       <Business />
-      <Merchandising />
       <Closing />
     </main>
   );

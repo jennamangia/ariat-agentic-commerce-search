@@ -4,6 +4,9 @@ export type QueryCase = {
   id: string;
   query: string;
   screenshot: string;
+  merchandising?: string;
+  acsScreenshot?: string;
+  resultSummary?: string;
   observation: string;
   intent: string[];
   annotation: string;
